@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TitleDetailTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcp-hr-c8a">
+                        <rect key="frame" x="8" y="14" width="150" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="150" id="1a3-rG-fZj"/>
+                            <constraint firstAttribute="height" constant="15" id="2yO-R7-S8C"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdX-dL-nra">
+                        <rect key="frame" x="163" y="14" width="149" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="B4u-2r-Jfb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fdX-dL-nra" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Cce-Et-TZb"/>
+                    <constraint firstItem="fdX-dL-nra" firstAttribute="leading" secondItem="Pcp-hr-c8a" secondAttribute="trailing" constant="5" id="RZf-WI-aHC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="fdX-dL-nra" secondAttribute="trailing" id="dqP-iT-aRX"/>
+                    <constraint firstItem="Pcp-hr-c8a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gKr-2c-NOx"/>
+                    <constraint firstItem="Pcp-hr-c8a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="se9-Su-2j8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblDetail" destination="fdX-dL-nra" id="Jb2-yf-drK"/>
+                <outlet property="lblTitle" destination="Pcp-hr-c8a" id="eJJ-f8-R6F"/>
+            </connections>
+            <point key="canvasLocation" x="15" y="-85"/>
+        </tableViewCell>
+    </objects>
+</document>

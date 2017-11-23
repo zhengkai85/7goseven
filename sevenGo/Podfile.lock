@@ -1,0 +1,133 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - BaiduMapKit (3.4.2)
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - IQKeyboardManager (5.0.2)
+  - JKCountDownButton (1.1.0)
+  - LCProgressHUD (1.0.7):
+    - MBProgressHUD (~> 0.9.1)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.12)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
+  - PGDatePicker (1.5.3):
+    - PGPickerView
+  - PGPickerView (1.2.1)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SafeKit (1.4.1):
+    - SafeKit/Foundation (= 1.4.1)
+    - SafeKit/MRC (= 1.4.1)
+    - SafeKit/SafeCore (= 1.4.1)
+  - SafeKit/Foundation (1.4.1):
+    - SafeKit/SafeCore
+  - SafeKit/MRC (1.4.1):
+    - SafeKit/SafeCore
+  - SafeKit/SafeCore (1.4.1)
+  - SDCycleScrollView (1.73):
+    - SDWebImage (~> 4.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - TZScrollViewPopGesture (1.0.6)
+  - UITableView+FDTemplateLayoutCell (1.6)
+  - UITextView+Placeholder (1.2.0)
+  - UMengUShare/Core (6.4.5):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.5)
+  - UMengUShare/Social/ReducedQQ (6.4.5):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.5):
+    - UMengUShare/Core
+  - WechatOpenSDK (1.8.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+  - ZLPhotoBrowser (2.5.0.1):
+    - SDWebImage
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - BaiduMapKit
+  - BlocksKit
+  - IQKeyboardManager
+  - JKCountDownButton
+  - LCProgressHUD
+  - MJRefresh
+  - NJKWebViewProgress
+  - PGDatePicker (>= 1.5.2)
+  - ReactiveCocoa (~> 2.5)
+  - SafeKit
+  - SDCycleScrollView (~> 1.66)
+  - TZScrollViewPopGesture
+  - UITableView+FDTemplateLayoutCell
+  - UITextView+Placeholder (~> 1.2)
+  - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedWeChat
+  - WechatOpenSDK
+  - YYKit
+  - ZLPhotoBrowser
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  BaiduMapKit: f61b19ecf07a3f2deede72b221b366bf698739ed
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
+  JKCountDownButton: 0141b38a01cb77199184f8c0d9975bf88358216f
+  LCProgressHUD: f7a48802aa03dec6aae5e907908434cbf699b241
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
+  PGDatePicker: 17f53221dfbc3900777736a65bdbc8e25a588321
+  PGPickerView: cb49c6b3e2a39148bef9f666fa58bb349e0c3b85
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SafeKit: 7d20e4b2680498cda979913bedee5f993f60de96
+  SDCycleScrollView: d0fd5fe40a80918371fd8939214eb3be81033d83
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  TZScrollViewPopGesture: d36355038259e89372a1f4a2db7e9ca675de2278
+  UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
+  UMengUShare: a5711c54e640b04e3048e931d2b88d50f9cfa55c
+  WechatOpenSDK: 0ee07a8d492299d3e47372a33da5af26524a7576
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZLPhotoBrowser: 6733020a5f9242eb5acc619e89532e3ae0cb889a
+
+PODFILE CHECKSUM: 1d732a3d20cbbfae023e9409669cd0599f7c5483
+
+COCOAPODS: 1.4.0.beta.1

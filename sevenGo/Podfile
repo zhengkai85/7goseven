@@ -1,0 +1,26 @@
+platform :ios,’8.0’
+
+inhibit_all_warnings!
+
+target 'sevenGo' do
+pod 'AFNetworking’, '~> 3.0'
+pod 'LCProgressHUD'
+pod 'TZScrollViewPopGesture'
+pod 'NJKWebViewProgress'
+pod 'MJRefresh'
+pod 'BlocksKit'
+pod 'UITextView+Placeholder', '~> 1.2'
+pod 'UITableView+FDTemplateLayoutCell'
+pod 'SafeKit'
+pod 'ReactiveCocoa', '~> 2.5'
+pod 'YYKit'
+pod 'SDCycleScrollView','~> 1.66'
+pod 'UMengUShare/Social/ReducedWeChat'
+pod 'UMengUShare/Social/ReducedQQ'
+pod 'JKCountDownButton'
+pod 'IQKeyboardManager'
+pod 'WechatOpenSDK'
+pod 'BaiduMapKit'
+pod 'ZLPhotoBrowser'
+pod 'PGDatePicker', '>= 1.5.2'
+end
