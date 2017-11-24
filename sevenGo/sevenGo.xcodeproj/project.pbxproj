@@ -81,6 +81,12 @@
 		5B5A4A791FC57B770069200C /* BMInputeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A771FC57B770069200C /* BMInputeViewController.m */; };
 		5B5A4A7A1FC57B770069200C /* BMInputeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A781FC57B770069200C /* BMInputeViewController.xib */; };
 		5B5A4A7D1FC6A88B0069200C /* BMExtraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A7C1FC6A88B0069200C /* BMExtraViewController.m */; };
+		5B5A4A841FC6CE920069200C /* BMReturnListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A831FC6CE910069200C /* BMReturnListViewController.m */; };
+		5B5A4A871FC6CEBC0069200C /* BMReturnContainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A861FC6CEBC0069200C /* BMReturnContainViewController.m */; };
+		5B5A4A8E1FC6D0A80069200C /* BMOrderContainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A8D1FC6D0A80069200C /* BMOrderContainViewController.m */; };
+		5B5A4A921FC6D0D20069200C /* BMOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A911FC6D0D20069200C /* BMOrderListViewController.m */; };
+		5B5A4A971FC6D4620069200C /* BMMoneyAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B5A4A951FC6D4620069200C /* BMMoneyAboutViewController.m */; };
+		5B5A4A981FC6D4620069200C /* BMMoneyAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B5A4A961FC6D4620069200C /* BMMoneyAboutViewController.xib */; };
 		5B62BAD51F6A207B002C6F97 /* HTPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B62BAD31F6A207B002C6F97 /* HTPlayer.m */; };
 		5B62BAD61F6A207B002C6F97 /* THPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5B62BAD41F6A207B002C6F97 /* THPlayer.bundle */; };
 		5B6835611F6664FB00A7C6B2 /* VideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B68355F1F6664FB00A7C6B2 /* VideoTableViewCell.m */; };
@@ -403,6 +409,17 @@
 		5B5A4A781FC57B770069200C /* BMInputeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMInputeViewController.xib; sourceTree = "<group>"; };
 		5B5A4A7B1FC6A88B0069200C /* BMExtraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMExtraViewController.h; sourceTree = "<group>"; };
 		5B5A4A7C1FC6A88B0069200C /* BMExtraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMExtraViewController.m; sourceTree = "<group>"; };
+		5B5A4A821FC6CE910069200C /* BMReturnListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMReturnListViewController.h; sourceTree = "<group>"; };
+		5B5A4A831FC6CE910069200C /* BMReturnListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMReturnListViewController.m; sourceTree = "<group>"; };
+		5B5A4A851FC6CEBC0069200C /* BMReturnContainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMReturnContainViewController.h; sourceTree = "<group>"; };
+		5B5A4A861FC6CEBC0069200C /* BMReturnContainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMReturnContainViewController.m; sourceTree = "<group>"; };
+		5B5A4A8C1FC6D0A80069200C /* BMOrderContainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMOrderContainViewController.h; sourceTree = "<group>"; };
+		5B5A4A8D1FC6D0A80069200C /* BMOrderContainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMOrderContainViewController.m; sourceTree = "<group>"; };
+		5B5A4A901FC6D0D20069200C /* BMOrderListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMOrderListViewController.h; sourceTree = "<group>"; };
+		5B5A4A911FC6D0D20069200C /* BMOrderListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMOrderListViewController.m; sourceTree = "<group>"; };
+		5B5A4A941FC6D4620069200C /* BMMoneyAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMMoneyAboutViewController.h; sourceTree = "<group>"; };
+		5B5A4A951FC6D4620069200C /* BMMoneyAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMMoneyAboutViewController.m; sourceTree = "<group>"; };
+		5B5A4A961FC6D4620069200C /* BMMoneyAboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BMMoneyAboutViewController.xib; sourceTree = "<group>"; };
 		5B62BAD21F6A207B002C6F97 /* HTPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlayer.h; sourceTree = "<group>"; };
 		5B62BAD31F6A207B002C6F97 /* HTPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlayer.m; sourceTree = "<group>"; };
 		5B62BAD41F6A207B002C6F97 /* THPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = THPlayer.bundle; sourceTree = "<group>"; };
@@ -1156,6 +1173,86 @@
 			path = C;
 			sourceTree = "<group>";
 		};
+		5B5A4A7E1FC6CE2F0069200C /* BMReturn */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A811FC6CE610069200C /* C */,
+				5B5A4A801FC6CE5A0069200C /* V */,
+				5B5A4A7F1FC6CE490069200C /* Scene */,
+			);
+			path = BMReturn;
+			sourceTree = "<group>";
+		};
+		5B5A4A7F1FC6CE490069200C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A851FC6CEBC0069200C /* BMReturnContainViewController.h */,
+				5B5A4A861FC6CEBC0069200C /* BMReturnContainViewController.m */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		5B5A4A801FC6CE5A0069200C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		5B5A4A811FC6CE610069200C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A821FC6CE910069200C /* BMReturnListViewController.h */,
+				5B5A4A831FC6CE910069200C /* BMReturnListViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		5B5A4A881FC6D03C0069200C /* BMOrder */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A8B1FC6D0600069200C /* Scene */,
+				5B5A4A8A1FC6D0480069200C /* C */,
+				5B5A4A891FC6D0420069200C /* V */,
+			);
+			path = BMOrder;
+			sourceTree = "<group>";
+		};
+		5B5A4A891FC6D0420069200C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		5B5A4A8A1FC6D0480069200C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A901FC6D0D20069200C /* BMOrderListViewController.h */,
+				5B5A4A911FC6D0D20069200C /* BMOrderListViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		5B5A4A8B1FC6D0600069200C /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A8C1FC6D0A80069200C /* BMOrderContainViewController.h */,
+				5B5A4A8D1FC6D0A80069200C /* BMOrderContainViewController.m */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		5B5A4A931FC6D4440069200C /* BMAbout */ = {
+			isa = PBXGroup;
+			children = (
+				5B5A4A941FC6D4620069200C /* BMMoneyAboutViewController.h */,
+				5B5A4A951FC6D4620069200C /* BMMoneyAboutViewController.m */,
+				5B5A4A961FC6D4620069200C /* BMMoneyAboutViewController.xib */,
+			);
+			path = BMAbout;
+			sourceTree = "<group>";
+		};
 		5B62BAD11F6A207B002C6F97 /* HTPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1277,6 +1374,9 @@
 		5B73A5A71FBE686700A48163 /* BarterManage */ = {
 			isa = PBXGroup;
 			children = (
+				5B5A4A931FC6D4440069200C /* BMAbout */,
+				5B5A4A881FC6D03C0069200C /* BMOrder */,
+				5B5A4A7E1FC6CE2F0069200C /* BMReturn */,
 				5BF3B6D61FC5146000D4C2F1 /* BMAdd */,
 				5B73A5CC1FC2BF0600A48163 /* Scene */,
 				5B73A5B01FBE6F7900A48163 /* Net */,
@@ -1927,6 +2027,7 @@
 				5BD0EB851F7F4057000BD70B /* login_phone@3x.png in Resources */,
 				5BD0EB811F7F4057000BD70B /* login_code@3x.png in Resources */,
 				5B9973F41FA882AF00D4C263 /* areaAdd_add@3x.png in Resources */,
+				5B5A4A981FC6D4620069200C /* BMMoneyAboutViewController.xib in Resources */,
 				5BB082EC1F99CF6C006AA67A /* my_sheZhi@2x.png in Resources */,
 				5B73A5C51FC26EA700A48163 /* my_supply@2x.png in Resources */,
 				5BD0EB701F7F3387000BD70B /* qq@3x.png in Resources */,
@@ -2031,8 +2132,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B73A5C81FC2B48700A48163 /* BMHomeViewController.m in Sources */,
+				5B5A4A841FC6CE920069200C /* BMReturnListViewController.m in Sources */,
 				5B5A4A5A1FC51A2B0069200C /* BMAddViewController.m in Sources */,
 				5BF05BBC1F9D8F19004F8B79 /* UITableView+Sure_Placeholder.m in Sources */,
+				5B5A4A921FC6D0D20069200C /* BMOrderListViewController.m in Sources */,
 				5B17BCFC1FB1B8C300689A5C /* UIButton_Category.m in Sources */,
 				5B1076461F5E769F005F6EEB /* AppDelegate.m in Sources */,
 				5BB74D3C1F6F6B44009968F4 /* HeadlineTableViewCell.m in Sources */,
@@ -2040,10 +2143,12 @@
 				5B1076881F5EA1E2005F6EEB /* RootWebViewController.m in Sources */,
 				5B1076631F5E9AFF005F6EEB /* RootContainViewController.m in Sources */,
 				5B17BCF91FB1B67800689A5C /* MyMenuTableViewCell.m in Sources */,
+				5B5A4A971FC6D4620069200C /* BMMoneyAboutViewController.m in Sources */,
 				5B7D06AD1FB05DC7006115E0 /* FoundContainViewController.m in Sources */,
 				5BE3B9E21FA041F60027C838 /* PaySelTableViewCell.m in Sources */,
 				5B6835611F6664FB00A7C6B2 /* VideoTableViewCell.m in Sources */,
 				5BB082F81F99DA0D006AA67A /* WalletHomeTableViewCell.m in Sources */,
+				5B5A4A871FC6CEBC0069200C /* BMReturnContainViewController.m in Sources */,
 				5B5A4A6C1FC51EC60069200C /* CollectionViewHeaderView.m in Sources */,
 				5BB082C41F99A158006AA67A /* NSDictionary_Category.m in Sources */,
 				5B1076431F5E769F005F6EEB /* main.m in Sources */,
@@ -2067,6 +2172,7 @@
 				5BE9CE721FA6F7F700CC6E35 /* AreaAddTagTableViewCell.m in Sources */,
 				5B7D06B11FB05E71006115E0 /* FoundNetViewController.m in Sources */,
 				5B6835651F6665BB00A7C6B2 /* VideoContainViewController.m in Sources */,
+				5B5A4A8E1FC6D0A80069200C /* BMOrderContainViewController.m in Sources */,
 				5BB74D301F6F55DA009968F4 /* HomeViewMode.m in Sources */,
 				5B5A4A791FC57B770069200C /* BMInputeViewController.m in Sources */,
 				5BE9CE691FA6F7B400CC6E35 /* AreaAddLocationTableViewCell.m in Sources */,

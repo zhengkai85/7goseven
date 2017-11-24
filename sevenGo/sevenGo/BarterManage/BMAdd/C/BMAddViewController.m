@@ -13,25 +13,31 @@
 #import "ReactiveCocoa.h"
 #import "CollectionViewController.h"
 #import "BMInputeViewController.h"
+#import "PGDatePicker.h"
+#import "BMExtraViewController.h"
 
-@interface BMAddViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface BMAddViewController ()<UITableViewDataSource,UITableViewDelegate,PGDatePickerDelegate>
 @property (nonatomic, strong) UITableView      *tableView;
 @property (nonatomic, assign) BidType bidType;
 @property (nonatomic, strong) TitleDetailTableViewCell *cidCell;
 @property (nonatomic, strong) PhotoTableViewCell *photoCell;
 @property (nonatomic, strong) TitleContentTableViewCell *titleCell;
-@property (nonatomic, strong) TitleContentTableViewCell *productIDCell;
-@property (nonatomic, strong) TitleContentTableViewCell *noticeCell;
-@property (nonatomic, strong) TitleContentTableViewCell *contentCell;
-@property (nonatomic, strong) TitleContentTableViewCell *startPriceCell;
-@property (nonatomic, strong) TitleContentTableViewCell *stepPriceCell;
-@property (nonatomic, strong) TitleContentTableViewCell *endPriceCell;
-@property (nonatomic, strong) TitleContentTableViewCell *refPriceCell;
-@property (nonatomic, strong) TitleContentTableViewCell *depositPriceCell;
-@property (nonatomic, strong) TitleContentTableViewCell *startTimeCell;
-@property (nonatomic, strong) TitleContentTableViewCell *endTimeCell;
+@property (nonatomic, strong) TitleContentTableViewCell *productIDCell;   //货号
+@property (nonatomic, strong) TitleContentTableViewCell *noticeCell;      //属性
+@property (nonatomic, strong) TitleContentTableViewCell *contentCell;     //描述
+@property (nonatomic, strong) TitleContentTableViewCell *startPriceCell;  //起拍价
+@property (nonatomic, strong) TitleContentTableViewCell *stepPriceCell;   //加价幅度
+@property (nonatomic, strong) TitleContentTableViewCell *endPriceCell;    //一口价
+@property (nonatomic, strong) TitleContentTableViewCell *refPriceCell;    //参考价
+@property (nonatomic, strong) TitleContentTableViewCell *depositPriceCell;//保证金
+@property (nonatomic, strong) TitleContentTableViewCell *startTimeCell;   //开始时间
+@property (nonatomic, strong) TitleContentTableViewCell *endTimeCell;     //结束时间
+@property (nonatomic, strong) TitleContentTableViewCell *startNumsCell;    //开始人数
+@property (nonatomic, strong) TitleContentTableViewCell *keepTimeCell;     //拍卖时间
+@property (nonatomic, strong) TitleContentTableViewCell *extraCell;        //批量内容
 
-@property (nonatomic, strong) NSArray *arrCellType;
+@property (nonatomic, strong) NSArray *arrCommodityType;  //商品
+@property (nonatomic, strong) NSArray *arrAuctionType;    //拍卖
 
 @end
 
@@ -48,7 +54,9 @@
 #define ReuseDepositPriceCell     @"reuseDepositPriceCell"
 #define ReuseStartTimeCell        @"reuseStartTimeCell"
 #define ReuseEndTimeCell          @"reuseEndTimeCell"
-
+#define ReuseStartNumCell         @"reuseStartNumCell"
+#define ReuseKeepTimeCell         @"keepTimeCell"
+#define ReuseExtraCell            @"extraCell"
 
 @implementation BMAddViewController
 
@@ -122,12 +130,31 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TitleContentTableViewCell" bundle:nil]
          forCellReuseIdentifier:ReuseEndTimeCell];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"TitleContentTableViewCell" bundle:nil]
+         forCellReuseIdentifier:ReuseStartNumCell];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"TitleContentTableViewCell" bundle:nil]
+         forCellReuseIdentifier:ReuseKeepTimeCell];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"TitleContentTableViewCell" bundle:nil]
+         forCellReuseIdentifier:ReuseExtraCell];
+    
+    
     if(self.bidType == BidType_mode) {
-            self.arrCellType = @[ReuseStartPriceCell,ReuseStepPriceCell,ReuseEndPriceCell,
-                                 ReuseRefPriceCell,ReuseDepositPriceCell,ReuseStartTimeCell,ReuseEndTimeCell];
+        self.arrCommodityType = @[ReuseProductIDCell,ReuseNoticeCell,ReuseContentCell];
+        self.arrAuctionType = @[ReuseStartPriceCell,ReuseStepPriceCell,ReuseEndPriceCell,
+                                ReuseRefPriceCell,ReuseDepositPriceCell,ReuseStartTimeCell,ReuseEndTimeCell];
+    } else if (self.bidType == BidType_batch) {
+        self.arrCommodityType = @[ReuseProductIDCell,ReuseNoticeCell,ReuseExtraCell,ReuseContentCell];
+        self.arrAuctionType = @[ReuseStartPriceCell,ReuseStepPriceCell,ReuseEndPriceCell,
+                                ReuseRefPriceCell,ReuseDepositPriceCell,ReuseStartTimeCell,ReuseEndTimeCell];
+    } else if (self.bidType == BidType_meeting) {
+        self.arrCommodityType = @[ReuseProductIDCell,ReuseNoticeCell,ReuseContentCell];
+        self.arrAuctionType = @[ReuseStartNumCell,ReuseStartPriceCell,ReuseStepPriceCell,ReuseEndPriceCell,
+                                ReuseRefPriceCell,ReuseKeepTimeCell];
     }
 
-//        self.arrCellType = @[ReuseStartPriceCell];
+//        self.arrAuctionType = @[ReuseStartPriceCell];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -152,9 +179,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if(section == 3) {
-        return 3;
+        return self.arrCommodityType.count;
     } else if (section == 4) {
-        return self.arrCellType.count;
+        return self.arrAuctionType.count;
     }
     return 1;
 }
@@ -191,35 +218,46 @@
         }
         return self.titleCell;
     } else if(indexPath.section == 3) {
-        if(indexPath.row == 0) {
+        NSString *cellReuse = self.arrCommodityType[indexPath.row];
+        if([cellReuse isEqualToString:ReuseProductIDCell]) {
             if(!self.productIDCell) {
-                self.productIDCell = [self.tableView dequeueReusableCellWithIdentifier:ReuseProductIDCell
+                self.productIDCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
                                                                           forIndexPath:indexPath];
                 self.productIDCell.lblTitle.text = @"商品货号";
+                self.productIDCell.txtContent.placeholder = @"请输入商品货号";
             }
             return self.productIDCell;
-        } else if(indexPath.row == 1) {
+        } else if([cellReuse isEqualToString:ReuseNoticeCell]) {
             if(!self.noticeCell) {
-                self.noticeCell = [self.tableView dequeueReusableCellWithIdentifier:ReuseNoticeCell
+                self.noticeCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
                                                                        forIndexPath:indexPath];
                 self.noticeCell.lblTitle.text = @"批量内容";
                 self.noticeCell.txtContent.userInteractionEnabled = NO;
                 self.noticeCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
             }
             return self.noticeCell;
-        } else if(indexPath.row == 2) {
+        } else if([cellReuse isEqualToString:ReuseContentCell]) {
             if(!self.contentCell) {
-                self.contentCell = [self.tableView dequeueReusableCellWithIdentifier:ReuseContentCell
+                self.contentCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
                                                                         forIndexPath:indexPath];
                 self.contentCell.lblTitle.text = @"商品描述";
                 self.contentCell.txtContent.userInteractionEnabled = NO;
                 self.contentCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
             }
             return self.contentCell;
+        } else if ([cellReuse isEqualToString:ReuseExtraCell]) {
+            if(!self.extraCell) {
+                self.extraCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
+                                                                        forIndexPath:indexPath];
+                self.extraCell.lblTitle.text = @"批量内容";
+                self.extraCell.txtContent.userInteractionEnabled = NO;
+                self.extraCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+            }
+            return self.contentCell;
         }
         
     } else if(indexPath.section == 4) {
-        NSString *cellReuse = self.arrCellType[indexPath.row];
+        NSString *cellReuse = self.arrAuctionType[indexPath.row];
         if([cellReuse isEqualToString:ReuseStartPriceCell]) {
             if(!self.startPriceCell) {
                 self.startPriceCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
@@ -272,6 +310,8 @@
                 self.startTimeCell.lblTitle.text = @"开拍时间";
                 self.startTimeCell.txtContent.placeholder = @"请选择开拍时间";
                 self.startTimeCell.txtContent.userInteractionEnabled = NO;
+                self.startTimeCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+
             }
             return self.startTimeCell;
         } else if ([cellReuse isEqualToString:ReuseEndTimeCell]) {
@@ -281,8 +321,28 @@
                 self.endTimeCell.lblTitle.text = @"结束时间";
                 self.endTimeCell.txtContent.placeholder = @"请选择结束时间";
                 self.endTimeCell.txtContent.userInteractionEnabled = NO;
+                self.endTimeCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
+
             }
             return self.endTimeCell;
+        } else if (([cellReuse isEqualToString:ReuseStartNumCell])) {
+            if(!self.startNumsCell) {
+                self.startNumsCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
+                                                                          forIndexPath:indexPath];
+                self.startNumsCell.lblTitle.text = @"需几人开拍";
+                self.startNumsCell.txtContent.placeholder = @"请输入起拍人数";
+                self.startNumsCell.txtContent.keyboardType = UIKeyboardTypeNumberPad;
+            }
+            return self.startNumsCell;
+        } else if (([cellReuse isEqualToString:ReuseKeepTimeCell])) {
+            if(!self.keepTimeCell) {
+                self.keepTimeCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
+                                                                          forIndexPath:indexPath];
+                self.keepTimeCell.lblTitle.text = @"拍卖时间";
+                self.keepTimeCell.txtContent.text = @"2个小时";
+                self.keepTimeCell.txtContent.userInteractionEnabled = NO;
+            }
+            return self.keepTimeCell;
         }
     }
     return [[UITableViewCell alloc] init];
@@ -297,7 +357,8 @@
         }];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if (indexPath.section == 3) {
-        if(indexPath.row == 1) {
+        NSString *cellReuse = self.arrCommodityType[indexPath.row];
+        if([cellReuse isEqualToString:ReuseNoticeCell]) {
             BMInputeViewController *vc = [[BMInputeViewController alloc] init];
             vc.title = @"填写内容";
             vc.strContent = self.noticeCell.txtContent.text;
@@ -305,7 +366,7 @@
                 self.noticeCell.txtContent.text = txt;
             }];
             [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
-        } else if (indexPath.row == 2) {
+        } else if ([cellReuse isEqualToString:ReuseContentCell]) {
             BMInputeViewController *vc = [[BMInputeViewController alloc] init];
             vc.title = @"填写描述";
             vc.strContent = self.contentCell.txtContent.text;
@@ -313,10 +374,60 @@
                 self.contentCell.txtContent.text = txt;
             }];
             [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+        } else if ([cellReuse isEqualToString:ReuseExtraCell]) {
+            BMExtraViewController *vc = [[BMExtraViewController alloc] init];
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+        }
+    } else if(indexPath.section == 4) {
+        NSString *cellReuse = self.arrAuctionType[indexPath.row];
+        if([cellReuse isEqualToString:ReuseStartTimeCell]) {
+            PGDatePicker *datePicker = [self getDatePicker];
+            datePicker.tag = 100;
+            if(self.startTimeCell.value) {
+                [datePicker setDate:self.startTimeCell.value animated:NO];
+            }
+            [datePicker show];
+
+        } else if ([cellReuse isEqualToString:ReuseEndTimeCell]) {
+            PGDatePicker *datePicker = [self getDatePicker];
+            datePicker.tag = 200;
+            if(self.endTimeCell.value) {
+                [datePicker setDate:self.endTimeCell.value animated:NO];
+            }
+            [datePicker show];
         }
     }
 }
 
 
+- (PGDatePicker *)getDatePicker {
+    PGDatePicker *datePicker = [[PGDatePicker alloc]init];
+    datePicker.delegate = self;
+    datePicker.datePickerMode = PGDatePickerModeDate;
+    datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
+    datePicker.lineBackgroundColor = [UIColor grayColor];
+    datePicker.textColorOfSelectedRow = [UIColor blackColor];
+    datePicker.textColorOfOtherRow = [UIColor grayColor];
+    datePicker.confirmButtonTextColor = [UIColor blackColor];
+
+    return datePicker;
+}
+
+#pragma PGDatePickerDelegate
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    if(datePicker.tag == 100) {
+        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+        NSDateFormatter *dateFormatter=[NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        self.startTimeCell.txtContent.text = [dateFormatter stringFromDate:date];
+        self.startTimeCell.value = date;
+    } else if (datePicker.tag == 200) {
+        NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
+        NSDateFormatter *dateFormatter=[NSDateFormatter new];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        self.endTimeCell.txtContent.text = [dateFormatter stringFromDate:date];
+        self.endTimeCell.value = date;
+    }
+}
 
 @end

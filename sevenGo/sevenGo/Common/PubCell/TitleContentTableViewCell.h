@@ -11,4 +11,5 @@
 @interface TitleContentTableViewCell : RootTableViewCell
 @property (nonatomic, strong)IBOutlet UILabel *lblTitle;
 @property (nonatomic, strong)IBOutlet UITextField *txtContent;
+@property (nonatomic, strong)id  value;
 @end

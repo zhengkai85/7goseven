@@ -11,7 +11,7 @@
 #import "TitleDetailTableViewCell.h"
 #import "BMProductContainViewController.h"
 #import "BMAddSelType.h"
-
+#import "BMMoneyAboutViewController.h"
 @interface BMHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView      *tableView;
 @property (nonatomic, strong) NSArray   *arrDataSource;
@@ -115,7 +115,7 @@
         } else if ([menuName isEqualToString:@"余额提现"]) {
             
         } else if ([menuName isEqualToString:@"费率说明"]) {
-            
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMMoneyAboutViewController alloc] init]];
         }
     }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BMMoneyAboutViewController">
+            <connections>
+                <outlet property="lblAbout" destination="Cjv-xK-wHu" id="4Sw-0M-3mP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-xK-wHu">
+                    <rect key="frame" x="8" y="8" width="359" height="527.5"/>
+                    <mutableString key="text">您当前可以发布商品类目及费率如下：  ● 服饰(6%)  ● 家纺(6%)  ● 面料(6%)  ● 辅料(6%)  ● 设备(6%)  ● 电子产品(6%)  ● 巴黎站(6%)  ● 其他(6%)服务费计算公式：服务费=商品最终成交金额*商品所属服务费费率特别说明：1.在买家确认收货时划扣服务费；2.参加活动(活动包括但不限于基础活动、拍卖活动)的作品对应服务费费率依据具体活动而定；3.全额退款的订单，不划扣服务费；4.部分退款的订单，商品最终成交金额=订单付款金额-退款金额；5.划扣服务费时的费率具体请以订单服务费详情页显示为准；6.确认收货后的退款，必须由7购平台介入处理，否则7购平台不承担任何责任；7.7购平台收费相关的最终解释权归属七购（深圳）网络技术有限公司。</mutableString>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Cjv-xK-wHu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="1oD-53-vBT"/>
+                <constraint firstItem="Cjv-xK-wHu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="r6L-Xb-Mcp"/>
+                <constraint firstAttribute="trailing" secondItem="Cjv-xK-wHu" secondAttribute="trailing" constant="8" id="szA-d4-ooq"/>
+            </constraints>
+            <point key="canvasLocation" x="-132" y="-46"/>
+        </view>
+    </objects>
+</document>
