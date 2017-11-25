@@ -11,13 +11,14 @@
 #import "BMNet.h"
 #import "PubFunction.h"
 #import "BMProductObj.h"
+#import "ControlTableViewCell.h"
 
 @interface BMProductListViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, assign)NSInteger state;
 @end
 
 #define ReuseProductTableViewCell        @"ProductTableViewCell"
-
+#define ReuseProductCTableViewCell       @"ProductCTableViewCell"
 
 @implementation BMProductListViewController
 
@@ -102,19 +103,49 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrDataSource.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseProductTableViewCell
-                                                                 forIndexPath:indexPath];
-    BMProductObj *mode = self.arrDataSource[indexPath.row];
-    [cell drawWith:mode];
-    return cell;
+    BMProductObj *mode = self.arrDataSource[indexPath.section];
+    if(indexPath.row == 0) {
+        ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseProductTableViewCell];
+        [cell drawWith:mode];
+        return cell;
+    } else if (indexPath.row == 1) {
+        ControlTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseProductTableViewCell];
+        
+        [cell.btnRight1 setTitle:@"编辑" forState:UIControlStateNormal];
+        cell.btnRight1.titleLabel.backgroundColor = COLOR_NAV;
+        [cell.btnRight1 setRoundedBorder:COLOR_NAV];
+        [cell setBtnR1ClickBLock:^{
+            
+        }];
+        
+        [cell.btnRight2 setTitle:@"上架" forState:UIControlStateNormal];
+        [cell.btnRight2 setTitleColor:COLOR_DETAIL forState:UIControlStateNormal];
+        [cell.btnRight2 setRoundedBorder:COLOR_DETAIL];
+        [cell setBtnR2ClickBLock:^{
+            
+        }];
+        
+        [cell.btnRight3 setTitle:@"删除" forState:UIControlStateNormal];
+        [cell.btnRight3 setTitleColor:COLOR_DETAIL forState:UIControlStateNormal];
+        [cell.btnRight3 setRoundedBorder:COLOR_DETAIL];
+        [cell setBtnR3ClickBLock:^{
+            
+        }];
+        
+        
+        return cell;
+    }
+    
+
+    return [UITableViewCell new];
 }
 
 

@@ -39,14 +39,14 @@ static NSString *cellIdentifier          = @"photoTableViewCell";
         layout.minimumLineSpacing = 1.5;
         layout.sectionInset = UIEdgeInsetsMake(3, 0, 3, 0);
         
-        UILabel *lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(16, 5, 100, 15)];
-        lblTitle.textColor = COLOR_TEXT;
-        lblTitle.font = [UIFont systemFontOfSize:14];
-        lblTitle.text = @"添加图片";
-        [self.contentView addSubview:lblTitle];
+        self.lblTitle = [[UILabel alloc] initWithFrame:CGRectMake(16, 5, 100, 15)];
+        self.lblTitle.textColor = COLOR_TEXT;
+        self.lblTitle.font = [UIFont systemFontOfSize:14];
+        self.lblTitle.text = @"添加图片";
+        [self.contentView addSubview:self.lblTitle];
         
         
-        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(4, lblTitle.bottom + 3, SCREEN_WIDTH-8, self.cellWidth + 5)
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(4, self.lblTitle.bottom + 3, SCREEN_WIDTH-8, self.cellWidth + 5)
                                                  collectionViewLayout:layout];
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
@@ -75,7 +75,12 @@ static NSString *cellIdentifier          = @"photoTableViewCell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.arrDataSource.count+1;
+    if(self.readOnly) {
+        return self.arrDataSource.count;
+    } else {
+        return self.arrDataSource.count+1;
+    }
+    return 0;
 }
 
 

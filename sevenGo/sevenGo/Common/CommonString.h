@@ -83,7 +83,7 @@ blue:((CGFloat)(hexValue & 0xFF))/255.0 alpha:alpha] \
 #define TOP_HEIGHT               (STATUS_BAR_HEIGHT + NAVIGATION_BAR_HEIGHT)
 #define PADDING                 10
 #define kHeaderViewTop          40
-
+#define Def_TableViewCellHeight     50
 #define PageSize                    20
 
 #define COLOR_NAV              HEXCOLOR(0x9231a6)
@@ -96,7 +96,7 @@ blue:((CGFloat)(hexValue & 0xFF))/255.0 alpha:alpha] \
 #define COLOR_BLACK            RGBCOLOR(56,56,56)
 //#define COLOR_ORANGE           RGBCOLOR(253,135,67)
 //#define COLOR_YELLOR           RGBCOLOR(251,168,40)
-//#define COLOR_RED              HEXCOLOR(0xff4f00)
+#define COLOR_RED              HEXCOLOR(0xff4f00)
 //#define COLOR_BOTTOMCELL       RGBCOLOR(248, 249, 251)
 
 #define Nofification_PaySucess           @"Nofification_PaySucess"

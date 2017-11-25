@@ -169,8 +169,7 @@
     if (indexPath.section == 1) {
        return self.photoCell.cellHeight + 5;
     }
-    
-    return 50;
+    return Def_TableViewCellHeight;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

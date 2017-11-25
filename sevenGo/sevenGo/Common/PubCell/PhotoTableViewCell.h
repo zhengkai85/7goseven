@@ -12,4 +12,6 @@
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, strong) NSMutableArray *arrDataSource;
 @property (nonatomic, strong) void(^reFresh)(void);
+@property (nonatomic, strong) UILabel *lblTitle;
+@property (nonatomic, assign) BOOL readOnly;
 @end

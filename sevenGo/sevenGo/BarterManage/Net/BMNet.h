@@ -42,4 +42,15 @@
                     size:(NSString*)size  //尺码
                   season:(NSString*)season //适用季节
                    block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+
+//上架，下架商品
++ (void)changeBidState:(NSString*)pId
+                status:(NSInteger)status  //商品状态：1-上架、0-下架
+                 block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+
+// 订单列表
++ (void)getBidOrderListState:(NSInteger)state  //订单状态：1-新订单,2-已付款,3-已发货,4-已成交,5-已取消,6-已失败，默认值：1
+                        page:(NSInteger)page
+                       block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+
 @end

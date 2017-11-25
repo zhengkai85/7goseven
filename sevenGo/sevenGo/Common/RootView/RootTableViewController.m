@@ -47,7 +47,7 @@ static NSString *strCellIdentifier = @"CellIdentifier";
 //    [self.tableView registerNib:[UINib nibWithNibName:@"xxxxxCell" bundle:nil] forCellReuseIdentifier:kCellIdentify];
 //    [self.tableView registerClass:[xxxxxCell class] forCellReuseIdentifier:kCellIdentify];
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:strCellIdentifier];
-    self.pageSize = 20;
+    self.pageSize = 10;
 }
 
 - (void)addHeardView {

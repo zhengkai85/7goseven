@@ -7,6 +7,7 @@
 //
 
 #import "BMOrderContainViewController.h"
+#import "BMOrderListViewController.h"
 
 @interface BMOrderContainViewController ()
 
@@ -16,7 +17,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = @"产品管理";
+    NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:6];
+    
+    [items addObject:@"全部"];
+    [self.viewControllers addObject:[[BMOrderListViewController alloc] initWithState:1]];
+    
+    [items addObject:@"待付款"];
+    [self.viewControllers addObject:[[BMOrderListViewController alloc] initWithState:2]];
+    
+    [items addObject:@"待发货"];
+    [self.viewControllers addObject:[[BMOrderListViewController alloc] initWithState:3]];
+    
+    [items addObject:@"待收货"];
+    [self.viewControllers addObject:[[BMOrderListViewController alloc] initWithState:4]];
+    
+    [items addObject:@"已完成"];
+    [self.viewControllers addObject:[[BMOrderListViewController alloc] initWithState:5]];
+    
+
+    
+    
+    self.arrItem = [[NSArray alloc] initWithArray:items];
+    [self setupView];
+    
+    self.pagingHeaderView.frame = CGRectMake(0, 0, SCREEN_WIDTH, kHeaderViewTop);
+    self.pagingViewController.view.frame = CGRectMake(0,
+                                                      self.pagingHeaderView.bottom,
+                                                      SCREEN_WIDTH,
+                                                      self.view.height - self.pagingHeaderView.bottom);
+    
 }
 
 - (void)didReceiveMemoryWarning {

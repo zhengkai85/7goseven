@@ -7,6 +7,8 @@
 //
 
 #import "BMHomeMenuTableViewCell.h"
+#import "BMOrderContainViewController.h"
+#import "GotoRoute.h"
 
 @implementation BMHomeMenuTableViewCell
 
@@ -52,26 +54,31 @@
         btnMenu4.centerY = btnMenu1.centerY;
         [self.contentView addSubview:btnMenu4];
         
+        btnMenu1.tag = 100;
         [btnMenu1 setImage:[YYImage imageNamed:@"my_barter.png"]
                  withTitle:@"待付款"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
                   forState:UIControlStateNormal];
-//        [btnMenu1 addTarget:self action:@selector(gotoEntAlbum) forControlEvents:UIControlEventTouchUpInside];
+        [btnMenu1 addTarget:self action:@selector(gotoOrder:) forControlEvents:UIControlEventTouchUpInside];
         
+        
+        btnMenu2.tag = 200;
         [btnMenu2 setImage:[YYImage imageNamed:@"my_supply.png"]
                  withTitle:@"待发货"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
                   forState:UIControlStateNormal];
-//        [btnMenu2 addTarget:self action:@selector(gotoEntSupply) forControlEvents:UIControlEventTouchUpInside];
+        [btnMenu2 addTarget:self action:@selector(gotoOrder:) forControlEvents:UIControlEventTouchUpInside];
         
+        
+        btnMenu3.tag = 300;
         [btnMenu3 setImage:[YYImage imageNamed:@"my_barter.png"]
                  withTitle:@"待收货"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
                   forState:UIControlStateNormal];
-//        [btnMenu3 addTarget:self action:@selector(gotoEntBid) forControlEvents:UIControlEventTouchUpInside];
+        [btnMenu3 addTarget:self action:@selector(gotoOrder:) forControlEvents:UIControlEventTouchUpInside];
         
         [btnMenu4 setImage:[YYImage imageNamed:@"my_recruit.png"]
                  withTitle:@"店铺报表"
@@ -82,6 +89,13 @@
         
     }
     return self;
+}
+
+- (void)gotoOrder:(id)sender  {
+    UIButton *btn = (UIButton*)sender;
+    BMOrderContainViewController *vc = [[BMOrderContainViewController alloc] init];
+    vc.selIndex = btn.tag/100 - 1;
+    [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
 }
 
 + (CGFloat)getCellHeight {

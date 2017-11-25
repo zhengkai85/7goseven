@@ -128,4 +128,56 @@
                            }];
 }
 
+
++ (void)changeBidState:(NSString*)pId
+                status:(NSInteger)status  //商品状态：1-上架、0-下架
+                 block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block {
+    NSDictionary *dic = @{@"method" : Method_Put,
+                          @"status" : [NSNumber numberWithInteger:status],
+                          };
+    
+    NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+    
+    NSString *openid = [[AppCacheData shareCachData] getOpen_id];
+    if([openid isNoEmpty]) {
+        [muDic setObject:openid forKey:@"open_id"];
+    }
+    
+    
+    [AFAppDotNetAPIClient dealWithNet:[NSString stringWithFormat:@"bid_goods_status/%@",pId]
+                                param:muDic
+                           isShowLoad:NO
+                           cacheBlock:^(id cache) {
+                               block(cache,200,nil);
+                           } block:^(id posts, NSInteger code, NSString *errorMsg) {
+                               block(posts,code,errorMsg);
+                           }];
+}
+
++ (void)getBidOrderListState:(NSInteger)state  //订单状态：1-新订单,2-已付款,3-已发货,4-已成交,5-已取消,6-已失败，默认值：1
+                        page:(NSInteger)page
+                       block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block {
+    
+    NSDictionary *dic = @{@"method" : Method_Get,
+                          @"status" : [NSNumber numberWithInteger:state],
+                          @"page" : [NSNumber numberWithInteger:page],
+                          };
+    
+    NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+    
+    NSString *openid = [[AppCacheData shareCachData] getOpen_id];
+    if([openid isNoEmpty]) {
+        [muDic setObject:openid forKey:@"open_id"];
+    }
+    
+    
+    [AFAppDotNetAPIClient dealWithNet:@"bid_order_list"
+                                param:muDic
+                           isShowLoad:NO
+                           cacheBlock:^(id cache) {
+                               block(cache,200,nil);
+                           } block:^(id posts, NSInteger code, NSString *errorMsg) {
+                               block(posts,code,errorMsg);
+                           }];
+}
 @end
