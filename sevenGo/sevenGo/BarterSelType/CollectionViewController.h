@@ -10,5 +10,5 @@
 #import "CollectionCategoryModel.h"
 
 @interface CollectionViewController : UIViewController
-@property (nonatomic, strong) void(^selValueBlock)(SubCategoryModel *mode);
+@property (nonatomic, strong) void(^selValueBlock)(CollectionCategoryModel *mode,SubCategoryModel *smode);
 @end

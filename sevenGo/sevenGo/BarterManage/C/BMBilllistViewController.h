@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootTableViewController.h"
 
-@interface BMBilllistViewController : RootTableView
+@interface BMBilllistViewController : RootTableViewController
 
 @end

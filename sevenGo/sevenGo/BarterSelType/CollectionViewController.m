@@ -215,9 +215,10 @@ static float kCollectionViewMargin = 3.f;
 
 #pragma mark - UICollectionView DataSource Delegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    SubCategoryModel *model = self.collectionDatas[indexPath.section][indexPath.row];
+    CollectionCategoryModel *model = self.dataSource[indexPath.section];
+    SubCategoryModel *smodel = self.collectionDatas[indexPath.section][indexPath.row];
     if(self.selValueBlock) {
-        self.selValueBlock(model);
+        self.selValueBlock(model,smodel);
     }
     [[GotoAppdelegate sharedAppDelegate] popViewController];
 }

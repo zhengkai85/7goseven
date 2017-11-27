@@ -11,6 +11,11 @@
 @interface PlugNet : NSObject
 
 /*
+ 图片上传
+ */
++ (void)uploadImg:(NSData*)data
+            block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+/*
  评论列表
             app(appname)     mod(table)
  资讯        News             news

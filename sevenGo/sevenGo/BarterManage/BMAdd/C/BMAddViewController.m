@@ -10,11 +10,15 @@
 #import "TitleDetailTableViewCell.h"
 #import "PhotoTableViewCell.h"
 #import "TitleContentTableViewCell.h"
-#import "ReactiveCocoa.h"
 #import "CollectionViewController.h"
 #import "BMInputeViewController.h"
 #import "PGDatePicker.h"
 #import "BMExtraViewController.h"
+#import "LCProgressHUD.h"
+#import "UIControl+BlocksKit.h"
+#import "BMNet.h"
+#import "PlugNet.h"
+#import "PubFunction.h"
 
 @interface BMAddViewController ()<UITableViewDataSource,UITableViewDelegate,PGDatePickerDelegate>
 @property (nonatomic, strong) UITableView      *tableView;
@@ -35,6 +39,8 @@
 @property (nonatomic, strong) TitleContentTableViewCell *startNumsCell;    //开始人数
 @property (nonatomic, strong) TitleContentTableViewCell *keepTimeCell;     //拍卖时间
 @property (nonatomic, strong) TitleContentTableViewCell *extraCell;        //批量内容
+
+@property (nonatomic, strong) BMExtraViewController *extraVc;
 
 @property (nonatomic, strong) NSArray *arrCommodityType;  //商品
 @property (nonatomic, strong) NSArray *arrAuctionType;    //拍卖
@@ -89,7 +95,11 @@
     self.tableView.sectionHeaderHeight = 0.0001;
     self.tableView.sectionFooterHeight = 0.0001;
     [self.view addSubview:self.tableView];
-    
+    @weakify(self)
+    [self addFootView:@"确认提交" click:^{
+        @strongify(self);
+        [self doSubmit];
+    }];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"TitleDetailTableViewCell" bundle:nil]
          forCellReuseIdentifier:ReuseCidCell];
@@ -153,8 +163,179 @@
         self.arrAuctionType = @[ReuseStartNumCell,ReuseStartPriceCell,ReuseStepPriceCell,ReuseEndPriceCell,
                                 ReuseRefPriceCell,ReuseKeepTimeCell];
     }
+}
 
-//        self.arrAuctionType = @[ReuseStartPriceCell];
+- (void)doSubmit {
+    
+    
+    if([self.arrCommodityType containsObject:ReuseProductIDCell]) {
+        if(self.productIDCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.productIDCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrCommodityType containsObject:ReuseNoticeCell]) {
+        if(self.noticeCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.noticeCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrCommodityType containsObject:ReuseContentCell]) {
+        if(self.contentCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.contentCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseStartNumCell]) {
+        if(self.startPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.startNumsCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseStartPriceCell]) {
+        if(self.startPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.startPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    if([self.arrAuctionType containsObject:ReuseStepPriceCell]) {
+        if(self.stepPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.stepPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseEndPriceCell]) {
+        if(self.endPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.endPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseRefPriceCell]) {
+        if(self.refPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.refPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseDepositPriceCell]) {
+        if(self.depositPriceCell.txtContent.text.length == 0) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.depositPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseStartTimeCell]) {
+        if(!self.startTimeCell.value) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.depositPriceCell.lblTitle.text]];
+            return;
+        }
+    }
+    
+    if([self.arrAuctionType containsObject:ReuseEndTimeCell]) {
+        if(!self.endTimeCell.value) {
+            [LCProgressHUD showMessage:[NSString stringWithFormat:@"%@不能为空",self.endTimeCell.lblTitle.text]];
+            return;
+        }
+    }
+
+    
+    
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:self.photoCell.arrDataSource.count];
+    __block BOOL bPicSend  = YES;
+        dispatch_group_t group = dispatch_group_create();
+        for(UIImage *image in self.photoCell.arrDataSource) {
+            dispatch_group_enter(group);
+            [PlugNet uploadImg: UIImageJPEGRepresentation(image, (CGFloat)0.7)
+                         block:^(id posts, NSInteger code, NSString *errorMsg) {
+                             dispatch_group_leave(group);
+                             if(code == 200) {
+                                 NSDictionary *dicData = (NSDictionary*)posts[@"data"];
+                                 [arr addObject:[dicData stringValue:@"id"]];
+                             } else {
+                                 bPicSend = NO;
+                             }
+                         }];
+        }
+        
+        if(!bPicSend) {
+            [LCProgressHUD showMessage:@"发送失败"];
+            return;
+        }
+        
+        dispatch_queue_t mainQueue= dispatch_get_main_queue();
+        dispatch_group_notify(group, mainQueue, ^{
+
+            NSString *strAllID = @"";
+            for(NSString *strId in arr) {
+                strAllID = [NSString stringWithFormat:@"%@,%@",strAllID,strId];
+            }
+            
+            if(strAllID.length > 1) {
+                strAllID = [strAllID substringFromIndex:1];
+            }
+            
+            [BMNet addBidGoodsTitle:self.titleCell.txtContent.text
+                                cid:[self.cidCell.value integerValue]
+                              image:strAllID
+                         product_id:self.productIDCell.txtContent.text
+                             notice:self.noticeCell.txtContent.text
+                            content:self.contentCell.txtContent.text
+                          bid_class:[NSString stringWithFormat:@"%ld",(long)self.bidType]
+                         start_nums:self.startNumsCell.txtContent.text
+                         start_time:[NSString stringWithFormat:@"%ld", (long)[self.startTimeCell.value timeIntervalSince1970]]
+                           end_time:[NSString stringWithFormat:@"%ld", (long)[self.endTimeCell.value timeIntervalSince1970]]
+                        start_price:[self.startPriceCell.txtContent.text integerValue]
+                       retain_price:0
+                          end_price:[self.endPriceCell.txtContent.text integerValue]
+             market_reference_price:[self.refPriceCell.txtContent.text integerValue]
+                         step_price:[self.stepPriceCell.txtContent.text integerValue]
+                            deposit:[self.depositPriceCell.txtContent.text integerValue]
+                         appdendDic:[BMExtraViewController getAppendMeg:self.extraCell.value]
+                              block:^(id posts, NSInteger code, NSString *errorMsg) {
+                                  if(code == 200) {
+                                      [LCProgressHUD showMessage:@"发送成功"];
+                                      [[GotoAppdelegate sharedAppDelegate] popViewController];
+                                  } else {
+                                      [PubFunction showNetErrorLocalStr:@"发送失败" serverStr:errorMsg];
+                                  }
+                              }];
+            
+            
+        });
+    
+    
+
+
+}
+
+- (void)addFootView:(NSString*)title
+              click:(void(^)(void))click {
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 80)];
+    view.backgroundColor =[UIColor clearColor];
+    UIButton *btnFoot = [UIButton buttonWithType:UIButtonTypeSystem];
+    btnFoot.layer.cornerRadius = 16.0;
+    btnFoot.frame = CGRectMake(0, 25, SCREEN_WIDTH - 16, 35);
+    btnFoot.centerX = view.centerX;
+    [btnFoot setTitle:title forState:UIControlStateNormal];
+    btnFoot.titleLabel.font = [UIFont systemFontOfSize:16];
+    [btnFoot setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnFoot setBackgroundColor:COLOR_NAV];
+    [btnFoot bk_addEventHandler:^(id sender) {
+        if(click) {
+            click();
+        }
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+    [view addSubview:btnFoot];
+    self.tableView.tableFooterView = view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -248,11 +429,11 @@
             if(!self.extraCell) {
                 self.extraCell = [self.tableView dequeueReusableCellWithIdentifier:cellReuse
                                                                         forIndexPath:indexPath];
-                self.extraCell.lblTitle.text = @"批量内容";
+                self.extraCell.lblTitle.text = @"商品属性";
                 self.extraCell.txtContent.userInteractionEnabled = NO;
                 self.extraCell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
             }
-            return self.contentCell;
+            return self.extraCell;
         }
         
     } else if(indexPath.section == 4) {
@@ -350,9 +531,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0) {
         CollectionViewController *vc = [[CollectionViewController alloc] init];
-        [vc setSelValueBlock:^(SubCategoryModel *mode) {
-            self.cidCell.lblDetail.text = mode.title;
-            self.cidCell.value = mode.pid;
+        [vc setSelValueBlock:^(CollectionCategoryModel *mode,SubCategoryModel *smode) {
+            self.cidCell.lblDetail.text = smode.title;
+            self.cidCell.value = smode.pid;
+            self.extraCell.bindType = mode.ext_field;
         }];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if (indexPath.section == 3) {
@@ -374,8 +556,27 @@
             }];
             [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
         } else if ([cellReuse isEqualToString:ReuseExtraCell]) {
-            BMExtraViewController *vc = [[BMExtraViewController alloc] init];
-            [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+            if(!self.extraCell.bindType) {
+                [LCProgressHUD showMessage:@"请选择类目"];
+                return;
+            }
+            
+            if(!self.extraVc) {
+                self.extraVc = [[BMExtraViewController alloc] init];
+                @weakify(self);
+                [self.extraVc setGetMessage:^(NSArray *arr) {
+                    @strongify(self);
+                    self.extraCell.value = arr;
+                }];
+            }
+
+            NSArray *arr = self.extraCell.value;
+            if(arr.count>0) {
+                self.extraVc.arrDataSource = arr;
+            } else {
+                [self.extraVc fillData:self.extraCell.bindType];
+            }
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:self.extraVc];
         }
     } else if(indexPath.section == 4) {
         NSString *cellReuse = self.arrAuctionType[indexPath.row];

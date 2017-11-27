@@ -13,9 +13,6 @@
 + (void)quan_categoryBlock:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
 
 
-+ (void)quanImg:(NSData*)data
-          block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
-
 
 + (void)quanAddImgs:(NSArray*)imgs
         description:(NSString*)description

@@ -26,27 +26,6 @@
                             }];
 }
 
-+ (void)quanImg:(NSData*)data
-          block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block {
-    
-    NSDictionary *dic = @{@"method" : Method_Post,
-                          @"data" : [data base64EncodedString],
-                          @"ext" : @"jpg"
-                          };
-    
-    NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
-    NSString *openId = [[AppCacheData shareCachData] getOpen_id];
-    if([openId isNoEmpty]) {
-        [muDic setObject:openId forKey:@"open_id"];
-    }
-    
-    [AFAppDotNetAPIClient dealWithNet:@"picture"
-                                param:muDic
-                           isShowLoad:NO
-                                block:^(id posts, NSInteger code, NSString *errorMsg) {
-                                    block(posts,code,errorMsg);
-                           }];
-}
 
 + (void)quanAddImgs:(NSArray*)imgs
         description:(NSString*)description

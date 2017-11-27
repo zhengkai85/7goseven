@@ -12,4 +12,5 @@
 @property (nonatomic, strong)IBOutlet UILabel *lblTitle;
 @property (nonatomic, strong)IBOutlet UITextField *txtContent;
 @property (nonatomic, strong)id  value;
+@property (nonatomic, strong)NSString *bindType;
 @end

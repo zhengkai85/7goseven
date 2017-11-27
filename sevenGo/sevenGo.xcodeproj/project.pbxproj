@@ -62,6 +62,9 @@
 		5B44F6631FC967280046017E /* ImgMessage4TableViewCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F6611FC967280046017E /* ImgMessage4TableViewCellTableViewCell.xib */; };
 		5B44F6671FC968EF0046017E /* ImgMessage3TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6651FC968EF0046017E /* ImgMessage3TableViewCell.m */; };
 		5B44F6681FC968EF0046017E /* ImgMessage3TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F6661FC968EF0046017E /* ImgMessage3TableViewCell.xib */; };
+		5B44F66C1FCBA34D0046017E /* BMGetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F66A1FCBA34D0046017E /* BMGetListViewController.m */; };
+		5B44F6741FCBB7B30046017E /* KeyValueNameObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6731FCBB7B30046017E /* KeyValueNameObj.m */; };
+		5B44F6771FCBEE1C0046017E /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6751FCBEE1C0046017E /* UIViewController+BackButtonHandler.m */; };
 		5B4660121F6FC704000A9410 /* home_toutiao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4660101F6FC704000A9410 /* home_toutiao@2x.png */; };
 		5B4660131F6FC704000A9410 /* home_toutiao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4660111F6FC704000A9410 /* home_toutiao@3x.png */; };
 		5B4660171F6FC9B5000A9410 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4660161F6FC9B5000A9410 /* MSWeakTimer.m */; };
@@ -392,6 +395,12 @@
 		5B44F6641FC968EF0046017E /* ImgMessage3TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImgMessage3TableViewCell.h; sourceTree = "<group>"; };
 		5B44F6651FC968EF0046017E /* ImgMessage3TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImgMessage3TableViewCell.m; sourceTree = "<group>"; };
 		5B44F6661FC968EF0046017E /* ImgMessage3TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImgMessage3TableViewCell.xib; sourceTree = "<group>"; };
+		5B44F6691FCBA34D0046017E /* BMGetListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMGetListViewController.h; sourceTree = "<group>"; };
+		5B44F66A1FCBA34D0046017E /* BMGetListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMGetListViewController.m; sourceTree = "<group>"; };
+		5B44F6721FCBB7B30046017E /* KeyValueNameObj.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyValueNameObj.h; sourceTree = "<group>"; };
+		5B44F6731FCBB7B30046017E /* KeyValueNameObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueNameObj.m; sourceTree = "<group>"; };
+		5B44F6751FCBEE1C0046017E /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		5B44F6761FCBEE1C0046017E /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		5B4660101F6FC704000A9410 /* home_toutiao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_toutiao@2x.png"; sourceTree = "<group>"; };
 		5B4660111F6FC704000A9410 /* home_toutiao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_toutiao@3x.png"; sourceTree = "<group>"; };
 		5B4660151F6FC9B5000A9410 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
@@ -989,6 +998,7 @@
 		5B10765D1F5E9AAD005F6EEB /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5B44F66E1FCBB5B80046017E /* PubObj */,
 				5BE3B9D91FA03B020027C838 /* PubCell */,
 				5B4AC2111F9607380002CF56 /* PubFunction.h */,
 				5B4AC2121F9607390002CF56 /* PubFunction.m */,
@@ -1155,6 +1165,15 @@
 				5B17BCF81FB1B67700689A5C /* MyMenuTableViewCell.m */,
 			);
 			path = V;
+			sourceTree = "<group>";
+		};
+		5B44F66E1FCBB5B80046017E /* PubObj */ = {
+			isa = PBXGroup;
+			children = (
+				5B44F6721FCBB7B30046017E /* KeyValueNameObj.h */,
+				5B44F6731FCBB7B30046017E /* KeyValueNameObj.m */,
+			);
+			path = PubObj;
 			sourceTree = "<group>";
 		};
 		5B4660141F6FC9B5000A9410 /* NSWeakTimer */ = {
@@ -1476,6 +1495,8 @@
 				5B6C07291F6FB48E0053DCD7 /* NSObject+MethodExt.m */,
 				5BB082C31F99A158006AA67A /* NSDictionary_Category.h */,
 				5BB082C21F99A158006AA67A /* NSDictionary_Category.m */,
+				5B44F6761FCBEE1C0046017E /* UIViewController+BackButtonHandler.h */,
+				5B44F6751FCBEE1C0046017E /* UIViewController+BackButtonHandler.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1520,6 +1541,8 @@
 				5B73A5C71FC2B48700A48163 /* BMHomeViewController.m */,
 				5B44F6571FC966680046017E /* BMBilllistViewController.h */,
 				5B44F6581FC966680046017E /* BMBilllistViewController.m */,
+				5B44F6691FCBA34D0046017E /* BMGetListViewController.h */,
+				5B44F66A1FCBA34D0046017E /* BMGetListViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -2304,6 +2327,7 @@
 				5B5A4A691FC51EC60069200C /* CollectionCategoryModel.m in Sources */,
 				5B7F544B1F7E31AF00E94858 /* VideoNoRecommendTableViewCell.m in Sources */,
 				5BE3B9DD1FA03B680027C838 /* TitleDetailTableViewCell.m in Sources */,
+				5B44F6741FCBB7B30046017E /* KeyValueNameObj.m in Sources */,
 				5B73A5D51FC2C8BF00A48163 /* BMNet.m in Sources */,
 				5B9653FD1F9DC6F000A81AD5 /* RechargeViewController.m in Sources */,
 				5BB082B41F98794E006AA67A /* BarterViewController.m in Sources */,
@@ -2347,6 +2371,7 @@
 				5B2B8CCD1F72129B00ABF7D0 /* RootCollectionView.m in Sources */,
 				5B4BCFBC1F8CCAAB004E0A74 /* FindPwdViewController.m in Sources */,
 				5B2DDFF81F79DD870059704C /* MarkTableViewCell.m in Sources */,
+				5B44F6771FCBEE1C0046017E /* UIViewController+BackButtonHandler.m in Sources */,
 				5BA742251F975A04003E2AD2 /* MyViewController.m in Sources */,
 				5B73A5EF1FC422FA00A48163 /* PhotoTableViewCell.m in Sources */,
 				5BE9CE621FA6F73100CC6E35 /* AreaAddTxtTableViewCell.m in Sources */,
@@ -2364,6 +2389,7 @@
 				5B2DDFFB1F79DEE70059704C /* RecommendTableViewCell.m in Sources */,
 				5B054B501F7B921C002D14EB /* PlugNet.m in Sources */,
 				5B5A4A571FC5176F0069200C /* BMAddSelType.m in Sources */,
+				5B44F66C1FCBA34D0046017E /* BMGetListViewController.m in Sources */,
 				5B5A4AB41FC807A90069200C /* BMProductObj.m in Sources */,
 				5BE4F9C61F7F8CD000E9446C /* LoginNet.m in Sources */,
 				5BE9CE7A1FA70B5600CC6E35 /* LocationDemoViewController.m in Sources */,

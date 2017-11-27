@@ -7,6 +7,8 @@
 //
 
 #import "BMBilllistViewController.h"
+#import "ImgMessage4TableViewCellTableViewCell.h"
+
 
 @implementation BMBilllistViewController
 

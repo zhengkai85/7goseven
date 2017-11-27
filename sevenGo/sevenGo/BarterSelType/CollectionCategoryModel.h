@@ -10,14 +10,14 @@
 
 @interface CollectionCategoryModel : NSObject
 
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *ext_field;
 
 @end
 
 @interface SubCategoryModel : NSObject
 
-@property (nonatomic, copy) NSString *image;
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *pid;
-
+@property (nonatomic, strong) NSString *image;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *pid;
 @end

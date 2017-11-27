@@ -17,6 +17,7 @@
 #import "LocationDemoViewController.h"
 #import "LCProgressHUD.h"
 #import "PubFunction.h"
+#import "PlugNet.h"
 
 @interface AreaAddViewController ()
 @property (nonatomic, strong)NSMutableArray *arrPhoto;
@@ -175,7 +176,7 @@ typedef enum : NSUInteger {
         dispatch_group_t group = dispatch_group_create();
         for(UIImage *image in self.photoCell.arrDataSource) {
             dispatch_group_enter(group);
-            [AreaAddNet quanImg: UIImageJPEGRepresentation(image, (CGFloat)0.7)
+            [PlugNet uploadImg: UIImageJPEGRepresentation(image, (CGFloat)0.7)
                           block:^(id posts, NSInteger code, NSString *errorMsg) {
                                   dispatch_group_leave(group);
                               if(code == 200) {

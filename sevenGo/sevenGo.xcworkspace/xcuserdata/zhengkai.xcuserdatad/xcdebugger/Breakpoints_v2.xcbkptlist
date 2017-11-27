@@ -40,9 +40,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "+quanAddImgs:description:tags:lng:lat:province:city:address:position:block:"
-            landmarkType = "7">
+            endingLineNumber = "108">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -132,7 +130,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533203854.916801"
+                  timestampString = "533461692.062501"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "458"
@@ -147,7 +145,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533203854.919686"
+                  timestampString = "533461692.065359"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "459"
@@ -185,7 +183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
             endingLineNumber = "173"
-            landmarkName = "+changeSupportApp:table:row_id:isAdd:block:"
+            landmarkName = "+getSupportListApp:mod:row_id:block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,7 +199,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "+getSupportListApp:mod:row_id:block:"
+            landmarkName = "+changeCollectMegApp:mod:row_id:isAdd:block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -244,7 +242,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533203854.948381"
+                  timestampString = "533461692.093251"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
@@ -259,7 +257,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533203854.951285"
+                  timestampString = "533461692.096234"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
