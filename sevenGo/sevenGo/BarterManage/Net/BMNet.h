@@ -96,4 +96,17 @@
 + (void)getBidShopCcorePage:(NSInteger)page
                       block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
 
+//退货列表
++ (void)getBidRefundType:(NSString*)type  //类型：1-新申请退货、2-待确认退款、3-已处理
+                    page:(NSInteger)page
+                   block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+
+
+//用户发起退货申请
++ (void)bidRefundOrderId:(NSInteger)orderId
+          refund_confirm:(NSInteger)refund_confirm //    审核意见：1-同意退货，2-拒绝退货，3-直接退款 4-退款完成
+           refund_remark:(NSString*)refund_remark
+                   block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block;
+
+
 @end

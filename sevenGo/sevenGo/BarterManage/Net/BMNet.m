@@ -295,4 +295,55 @@
                                     block(posts,code,errorMsg);
                                 }];
 }
+
++ (void)getBidRefundType:(NSString*)type  //类型：1-新申请退货、2-待确认退款、3-已处理
+                    page:(NSInteger)page
+                   block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block {
+    
+    NSDictionary *dic = @{@"method" : Method_Get,
+                          @"page" : [NSNumber numberWithInteger:page],
+                          @"type" : type,
+                          };
+    
+    NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+    
+    NSString *openid = [[AppCacheData shareCachData] getOpen_id];
+    if([openid isNoEmpty]) {
+        [muDic setObject:openid forKey:@"open_id"];
+    }
+    
+    
+    [AFAppDotNetAPIClient dealWithNet:@"bid_refund"
+                                param:muDic
+                           isShowLoad:NO
+                                block:^(id posts, NSInteger code, NSString *errorMsg) {
+                                    block(posts,code,errorMsg);
+                                }];
+}
+
++ (void)bidRefundOrderId:(NSInteger)orderId
+          refund_confirm:(NSInteger)refund_confirm //    审核意见：1-同意退货，2-拒绝退货，3-直接退款 4-退款完成
+           refund_remark:(NSString*)refund_remark
+                   block:(void (^)(id posts,NSInteger code,NSString *errorMsg))block {
+    NSDictionary *dic = @{@"method" : Method_Put,
+                          @"id" : [NSNumber numberWithInteger:orderId],
+                          @"refund_confirm" : [NSNumber numberWithInteger:refund_confirm],
+                          @"refund_remark" : refund_remark,
+                          };
+    
+    NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dic];
+    
+    NSString *openid = [[AppCacheData shareCachData] getOpen_id];
+    if([openid isNoEmpty]) {
+        [muDic setObject:openid forKey:@"open_id"];
+    }
+    
+    
+    [AFAppDotNetAPIClient dealWithNet:@"bid_refund"
+                                param:muDic
+                           isShowLoad:NO
+                                block:^(id posts, NSInteger code, NSString *errorMsg) {
+                                    block(posts,code,errorMsg);
+                                }];
+}
 @end

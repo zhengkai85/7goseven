@@ -243,8 +243,6 @@
             return;
         }
     }
-
-    
     
     
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:self.photoCell.arrDataSource.count];
@@ -306,13 +304,7 @@
                                       [PubFunction showNetErrorLocalStr:@"发送失败" serverStr:errorMsg];
                                   }
                               }];
-            
-            
         });
-    
-    
-
-
 }
 
 - (void)addFootView:(NSString*)title
