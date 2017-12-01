@@ -36,6 +36,9 @@
                                                                         image:[YYImage imageNamed:@"tb_home_nor.png"]
                                                                 selectedImage:[YYImage imageNamed:@"tb_home_sel.png"]];
     
+    
+//    RootWebViewController *vcGoods = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/goodsExchange/goodsList.w"]];
+//    [[BMHomeViewController alloc] init]
     UINavigationController *barterNavigationController = [[UINavigationController alloc]
                                                         initWithRootViewController:[[BMHomeViewController alloc] init]];
     barterNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"易货"

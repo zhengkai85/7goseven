@@ -35,7 +35,6 @@
     [self addSubview:btnMenu1];
 
 
-
     UIButton *btnMenu2 = [[UIButton alloc] initWithFrame:btnMenu1.bounds];
     btnMenu2.centerX = SCREEN_WIDTH/2;
     btnMenu2.centerY = btnMenu1.centerY;
@@ -56,7 +55,7 @@
     [btnClose addTarget:self action:@selector(doClose) forControlEvents:UIControlEventTouchDown];
 
 
-    [btnMenu1 setImage:[YYImage imageNamed:@"my_barter.png"]
+    [btnMenu1 setImage:[YYImage imageNamed:@"bm_add_mode.png"]
              withTitle:@"样板拍"
               sizeFont:[UIFont systemFontOfSize:13]
             titleColor:COLOR_DETAIL
@@ -64,7 +63,7 @@
     [btnMenu1 addTarget:self action:@selector(gotoBidTypeMode) forControlEvents:UIControlEventTouchUpInside];
 
 
-    [btnMenu2 setImage:[YYImage imageNamed:@"my_supply.png"]
+    [btnMenu2 setImage:[YYImage imageNamed:@"bm_add_batch.png"]
              withTitle:@"批量拍"
               sizeFont:[UIFont systemFontOfSize:13]
             titleColor:COLOR_DETAIL
@@ -73,7 +72,7 @@
 
 
 
-    [btnMenu3 setImage:[YYImage imageNamed:@"my_barter.png"]
+    [btnMenu3 setImage:[YYImage imageNamed:@"bm_add_meet.png"]
              withTitle:@"拍卖会"
               sizeFont:[UIFont systemFontOfSize:13]
             titleColor:COLOR_DETAIL

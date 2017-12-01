@@ -12,6 +12,7 @@
 #import "WalletHomeViewController.h"
 #import "ReactiveCocoa.h"
 #import "AppCacheData.h"
+#import "BMHomeViewController.h"
 
 @implementation MyMenuTableViewCell
 
@@ -147,12 +148,14 @@
 
 //易货
 - (void)gotoMyBarter {
-    if([GotoRoute isLogin]) {
-        return;
-    }
+//    if([GotoRoute isLogin]) {
+//        return;
+//    }
+//
+//    RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/goodsExchange/myGoodsExchange.w"]];
+//    [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     
-    RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/goodsExchange/myGoodsExchange.w"]];
-    [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+     [self gotoH5:@"/iQiGou/h5/iQiGou/src/app/manager/bidManager.w"];
 }
 
 //供求
@@ -200,7 +203,9 @@
 
 //易货管理
 - (void)gotoEntBid {
-    [self gotoH5:@"/iQiGou/h5/iQiGou/src/app/manager/bidManager.w"];
+    BMHomeViewController *vc = [[BMHomeViewController alloc] init];
+    [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+//    [self gotoH5:@"/iQiGou/h5/iQiGou/src/app/manager/bidManager.w"];
 }
 
 //招聘管理

@@ -180,7 +180,9 @@
 
     if(indexPath.section == 0) {
         VideoTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TitleReuseIdentifier];
-        [cell setViewMode:self.detailViewModel.detailMode height:[self getHeightForRowAtIndexPath:indexPath]];
+        if(self.detailViewModel.detailMode) {
+            [cell setViewMode:self.detailViewModel.detailMode height:[self getHeightForRowAtIndexPath:indexPath]];
+        }
         return cell;
     } else if (indexPath.section == 1) {
         if(self.recommendViewModel.recommendDatas.count == 0) {

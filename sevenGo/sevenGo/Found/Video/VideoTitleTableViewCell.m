@@ -53,18 +53,23 @@
     if(viewModel) {
         self.viewModel = viewModel;
         self.cellHeight = heigh;
+        self.lblTitle.text = viewModel.title;
+        self.lblView.text = viewModel.viewCount;
+        self.lblNickName.text = viewModel.creater_nickName;
+        self.lblAgree.text = viewModel.support;
+        self.lblCollect.text = viewModel.collection;
+        [self.imgAvatar setImageURL:[NSURL URLWithString:self.viewModel.creater_avatar]];
         
-        @weakify(self);
-        RAC(self.lblTitle, text) = RACObserve(self,viewModel.title);
-        RAC(self.lblView, text) = RACObserve(self, viewModel.viewCount);
-        RAC(self.lblNickName, text) = RACObserve(self, viewModel.creater_nickName);
-        RAC(self.lblAgree, text) = RACObserve(self, viewModel.support);
-        RAC(self.lblCollect, text) = RACObserve(self, viewModel.collection);
-        
-        [RACObserve(self, viewModel.creater_avatar) subscribeNext:^(NSString *title) {
-            @strongify(self);
-            [self.imgAvatar setImageURL:[NSURL URLWithString:self.viewModel.creater_avatar]];
-        }];
+//        RAC(self.lblTitle, text) = RACObserve(self.viewModel,title);
+//        RAC(self.lblView, text) = RACObserve(self.viewModel, viewCount);
+//        RAC(self.lblNickName, text) = RACObserve(self.viewModel, creater_nickName);
+//        RAC(self.lblAgree, text) = RACObserve(self.viewModel, support);
+//        RAC(self.lblCollect, text) = RACObserve(self.viewModel, collection);
+//        @weakify(self);
+//        [RACObserve(self, viewModel.creater_avatar) subscribeNext:^(NSString *title) {
+//            @strongify(self);
+//            [self.imgAvatar setImageURL:[NSURL URLWithString:self.viewModel.creater_avatar]];
+//        }];
     }
 }
 

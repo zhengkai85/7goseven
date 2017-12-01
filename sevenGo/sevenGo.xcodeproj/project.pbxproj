@@ -65,6 +65,21 @@
 		5B44F66C1FCBA34D0046017E /* BMGetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F66A1FCBA34D0046017E /* BMGetListViewController.m */; };
 		5B44F6741FCBB7B30046017E /* KeyValueNameObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6731FCBB7B30046017E /* KeyValueNameObj.m */; };
 		5B44F6771FCBEE1C0046017E /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6751FCBEE1C0046017E /* UIViewController+BackButtonHandler.m */; };
+		5B44F6801FD1332D0046017E /* bm_wait_rec@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F6781FD1332B0046017E /* bm_wait_rec@3x.png */; };
+		5B44F6811FD1332D0046017E /* bm_wait_send@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F6791FD1332B0046017E /* bm_wait_send@2x.png */; };
+		5B44F6821FD1332D0046017E /* bm_wait_pay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67A1FD1332B0046017E /* bm_wait_pay@3x.png */; };
+		5B44F6831FD1332D0046017E /* bm_wait_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67B1FD1332C0046017E /* bm_wait_pay@2x.png */; };
+		5B44F6841FD1332D0046017E /* bm_report@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67C1FD1332C0046017E /* bm_report@3x.png */; };
+		5B44F6851FD1332D0046017E /* bm_wait_rec@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67D1FD1332C0046017E /* bm_wait_rec@2x.png */; };
+		5B44F6861FD1332D0046017E /* bm_wait_send@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67E1FD1332C0046017E /* bm_wait_send@3x.png */; };
+		5B44F6871FD1332D0046017E /* bm_report@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F67F1FD1332C0046017E /* bm_report@2x.png */; };
+		5B44F68A1FD137F20046017E /* BMGetMoneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B44F6891FD137F20046017E /* BMGetMoneyViewController.m */; };
+		5B44F6911FD142B90046017E /* bm_add_meet@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F68B1FD142B70046017E /* bm_add_meet@3x.png */; };
+		5B44F6921FD142B90046017E /* bm_add_batch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F68C1FD142B80046017E /* bm_add_batch@2x.png */; };
+		5B44F6931FD142B90046017E /* bm_add_batch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F68D1FD142B80046017E /* bm_add_batch@3x.png */; };
+		5B44F6941FD142B90046017E /* bm_add_meet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F68E1FD142B80046017E /* bm_add_meet@2x.png */; };
+		5B44F6951FD142B90046017E /* bm_add_mode@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F68F1FD142B80046017E /* bm_add_mode@2x.png */; };
+		5B44F6961FD142B90046017E /* bm_add_mode@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B44F6901FD142B90046017E /* bm_add_mode@3x.png */; };
 		5B4660121F6FC704000A9410 /* home_toutiao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4660101F6FC704000A9410 /* home_toutiao@2x.png */; };
 		5B4660131F6FC704000A9410 /* home_toutiao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4660111F6FC704000A9410 /* home_toutiao@3x.png */; };
 		5B4660171F6FC9B5000A9410 /* MSWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B4660161F6FC9B5000A9410 /* MSWeakTimer.m */; };
@@ -401,6 +416,22 @@
 		5B44F6731FCBB7B30046017E /* KeyValueNameObj.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyValueNameObj.m; sourceTree = "<group>"; };
 		5B44F6751FCBEE1C0046017E /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		5B44F6761FCBEE1C0046017E /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		5B44F6781FD1332B0046017E /* bm_wait_rec@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_rec@3x.png"; sourceTree = "<group>"; };
+		5B44F6791FD1332B0046017E /* bm_wait_send@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_send@2x.png"; sourceTree = "<group>"; };
+		5B44F67A1FD1332B0046017E /* bm_wait_pay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_pay@3x.png"; sourceTree = "<group>"; };
+		5B44F67B1FD1332C0046017E /* bm_wait_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_pay@2x.png"; sourceTree = "<group>"; };
+		5B44F67C1FD1332C0046017E /* bm_report@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_report@3x.png"; sourceTree = "<group>"; };
+		5B44F67D1FD1332C0046017E /* bm_wait_rec@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_rec@2x.png"; sourceTree = "<group>"; };
+		5B44F67E1FD1332C0046017E /* bm_wait_send@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_wait_send@3x.png"; sourceTree = "<group>"; };
+		5B44F67F1FD1332C0046017E /* bm_report@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_report@2x.png"; sourceTree = "<group>"; };
+		5B44F6881FD137F20046017E /* BMGetMoneyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BMGetMoneyViewController.h; sourceTree = "<group>"; };
+		5B44F6891FD137F20046017E /* BMGetMoneyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMGetMoneyViewController.m; sourceTree = "<group>"; };
+		5B44F68B1FD142B70046017E /* bm_add_meet@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_meet@3x.png"; sourceTree = "<group>"; };
+		5B44F68C1FD142B80046017E /* bm_add_batch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_batch@2x.png"; sourceTree = "<group>"; };
+		5B44F68D1FD142B80046017E /* bm_add_batch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_batch@3x.png"; sourceTree = "<group>"; };
+		5B44F68E1FD142B80046017E /* bm_add_meet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_meet@2x.png"; sourceTree = "<group>"; };
+		5B44F68F1FD142B80046017E /* bm_add_mode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_mode@2x.png"; sourceTree = "<group>"; };
+		5B44F6901FD142B90046017E /* bm_add_mode@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bm_add_mode@3x.png"; sourceTree = "<group>"; };
 		5B4660101F6FC704000A9410 /* home_toutiao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_toutiao@2x.png"; sourceTree = "<group>"; };
 		5B4660111F6FC704000A9410 /* home_toutiao@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_toutiao@3x.png"; sourceTree = "<group>"; };
 		5B4660151F6FC9B5000A9410 /* MSWeakTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSWeakTimer.h; sourceTree = "<group>"; };
@@ -885,6 +916,20 @@
 		5B10765C1F5E9A81005F6EEB /* Resoure */ = {
 			isa = PBXGroup;
 			children = (
+				5B44F68C1FD142B80046017E /* bm_add_batch@2x.png */,
+				5B44F68D1FD142B80046017E /* bm_add_batch@3x.png */,
+				5B44F68E1FD142B80046017E /* bm_add_meet@2x.png */,
+				5B44F68B1FD142B70046017E /* bm_add_meet@3x.png */,
+				5B44F68F1FD142B80046017E /* bm_add_mode@2x.png */,
+				5B44F6901FD142B90046017E /* bm_add_mode@3x.png */,
+				5B44F67F1FD1332C0046017E /* bm_report@2x.png */,
+				5B44F67C1FD1332C0046017E /* bm_report@3x.png */,
+				5B44F67B1FD1332C0046017E /* bm_wait_pay@2x.png */,
+				5B44F67A1FD1332B0046017E /* bm_wait_pay@3x.png */,
+				5B44F67D1FD1332C0046017E /* bm_wait_rec@2x.png */,
+				5B44F6781FD1332B0046017E /* bm_wait_rec@3x.png */,
+				5B44F6791FD1332B0046017E /* bm_wait_send@2x.png */,
+				5B44F67E1FD1332C0046017E /* bm_wait_send@3x.png */,
 				5B73A5B71FC26EA500A48163 /* my_barter@2x.png */,
 				5B73A5BA1FC26EA600A48163 /* my_barter@3x.png */,
 				5B73A5B81FC26EA500A48163 /* my_picture@2x.png */,
@@ -1541,6 +1586,8 @@
 				5B73A5C71FC2B48700A48163 /* BMHomeViewController.m */,
 				5B44F6571FC966680046017E /* BMBilllistViewController.h */,
 				5B44F6581FC966680046017E /* BMBilllistViewController.m */,
+				5B44F6881FD137F20046017E /* BMGetMoneyViewController.h */,
+				5B44F6891FD137F20046017E /* BMGetMoneyViewController.m */,
 				5B44F6691FCBA34D0046017E /* BMGetListViewController.h */,
 				5B44F66A1FCBA34D0046017E /* BMGetListViewController.m */,
 			);
@@ -2076,8 +2123,10 @@
 				5B4660121F6FC704000A9410 /* home_toutiao@2x.png in Resources */,
 				5B1076A61F5F9A1C005F6EEB /* tb_barter_sel@3x.png in Resources */,
 				5BD0EB6F1F7F3387000BD70B /* login_pwd@3x.png in Resources */,
+				5B44F6921FD142B90046017E /* bm_add_batch@2x.png in Resources */,
 				5B17BCF01FB198B000689A5C /* areaAdd@3x.png in Resources */,
 				5BB082D91F99CF6C006AA67A /* my_background@3x.png in Resources */,
+				5B44F6801FD1332D0046017E /* bm_wait_rec@3x.png in Resources */,
 				5B73A5C11FC26EA700A48163 /* my_picture@3x.png in Resources */,
 				5BD0EB721F7F3387000BD70B /* login_background@2x.png in Resources */,
 				5BB082F31F99D50E006AA67A /* wallet_background@2x.png in Resources */,
@@ -2090,6 +2139,7 @@
 				5BB00DCB1F7CF8FF00ACD08D /* collect_yes@3x.png in Resources */,
 				5B17BCF61FB1A2D100689A5C /* MyLevelUpTableViewCell.xib in Resources */,
 				5B4BCFAA1F8C650C004E0A74 /* login_smallCheck@3x.png in Resources */,
+				5B44F6951FD142B90046017E /* bm_add_mode@2x.png in Resources */,
 				5B96540E1F9ECFC800A81AD5 /* pay_unSel@2x.png in Resources */,
 				5BB082E71F99CF6C006AA67A /* my_gongQiu@2x.png in Resources */,
 				5B9974251FAC5D7300D4C263 /* Invitation_button@2x.png in Resources */,
@@ -2101,15 +2151,21 @@
 				5BE9CE871FA70FEF00CC6E35 /* areaAdd_unSel@2x.png in Resources */,
 				5B73A5AC1FBE6A4C00A48163 /* Message4TableViewCell.xib in Resources */,
 				5B1076A31F5F9A1C005F6EEB /* tb_area_nor@3x.png in Resources */,
+				5B44F6841FD1332D0046017E /* bm_report@3x.png in Resources */,
 				5BB082E11F99CF6C006AA67A /* my_wallte@2x.png in Resources */,
+				5B44F6831FD1332D0046017E /* bm_wait_pay@2x.png in Resources */,
+				5B44F6871FD1332D0046017E /* bm_report@2x.png in Resources */,
 				5BB082E91F99CF6C006AA67A /* my_qiYe@3x.png in Resources */,
 				5BB082E61F99CF6C006AA67A /* my_collection@3x.png in Resources */,
+				5B44F6861FD1332D0046017E /* bm_wait_send@3x.png in Resources */,
 				5BB082E51F99CF6C006AA67A /* my_yiHuo@3x.png in Resources */,
 				5BB082DE1F99CF6C006AA67A /* my_wallte@3x.png in Resources */,
 				5B4BCFB81F8CCA2B004E0A74 /* icon_back@2x.png in Resources */,
 				5B2DDFEC1F78FD030059704C /* home_paimai@3x.png in Resources */,
+				5B44F6941FD142B90046017E /* bm_add_meet@2x.png in Resources */,
 				5BB082DD1F99CF6C006AA67A /* my_geRen@3x.png in Resources */,
 				5B73A5521FBA8A6100A48163 /* weixin@3x.png in Resources */,
+				5B44F6911FD142B90046017E /* bm_add_meet@3x.png in Resources */,
 				5BD0EB841F7F4057000BD70B /* login_phone@2x.png in Resources */,
 				5BB082DC1F99CF6C006AA67A /* my_background@2x.png in Resources */,
 				5BB082E31F99CF6C006AA67A /* my_xiaoXi@3x.png in Resources */,
@@ -2127,6 +2183,7 @@
 				5BE3B9E31FA041F60027C838 /* PaySelTableViewCell.xib in Resources */,
 				5B10764E1F5E769F005F6EEB /* Assets.xcassets in Resources */,
 				5BD0EB761F7F35F3000BD70B /* login_out@3x.png in Resources */,
+				5B44F6821FD1332D0046017E /* bm_wait_pay@3x.png in Resources */,
 				5BB00DC61F7CF8FF00ACD08D /* agree_no@2x.png in Resources */,
 				5B73A5BF1FC26EA700A48163 /* my_barter@2x.png in Resources */,
 				5B4BCFA41F8B68EE004E0A74 /* regist_background@3x.png in Resources */,
@@ -2137,6 +2194,7 @@
 				5B5A4AAA1FC806FD0069200C /* ProductTableViewCell.xib in Resources */,
 				5BB082E41F99CF6C006AA67A /* my_vip@2x.png in Resources */,
 				5B1076A41F5F9A1C005F6EEB /* tb_area_sel@3x.png in Resources */,
+				5B44F6931FD142B90046017E /* bm_add_batch@3x.png in Resources */,
 				5B1076A71F5F9A1C005F6EEB /* tb_found_nor@3x.png in Resources */,
 				5B73A5501FBA8A6100A48163 /* weixinQuan.png in Resources */,
 				5B9973F51FA882AF00D4C263 /* areaAdd_add@2x.png in Resources */,
@@ -2154,6 +2212,8 @@
 				5BB082DF1F99CF6C006AA67A /* my_geRen@2x.png in Resources */,
 				5B1076AA1F5F9A1C005F6EEB /* tb_home_sel@3x.png in Resources */,
 				5BEBDD0C1F6920FD004DA9D5 /* video_play@3x.png in Resources */,
+				5B44F6961FD142B90046017E /* bm_add_mode@3x.png in Resources */,
+				5B44F6851FD1332D0046017E /* bm_wait_rec@2x.png in Resources */,
 				5BB082E21F99CF6C006AA67A /* my_xiaoXi@2x.png in Resources */,
 				5BB082E81F99CF6C006AA67A /* my_sheZhi@3x.png in Resources */,
 				5BB082EA1F99CF6C006AA67A /* my_collection@2x.png in Resources */,
@@ -2193,6 +2253,7 @@
 				5B1076A91F5F9A1C005F6EEB /* tb_home_nor@3x.png in Resources */,
 				5B44F6631FC967280046017E /* ImgMessage4TableViewCellTableViewCell.xib in Resources */,
 				5BD0EB861F7F4057000BD70B /* login_buttonSel@2x.png in Resources */,
+				5B44F6811FD1332D0046017E /* bm_wait_send@2x.png in Resources */,
 				5BD0EB831F7F4057000BD70B /* login_code@2x.png in Resources */,
 				5B44F6561FC94E790046017E /* ControlTableViewCell.xib in Resources */,
 				5BD0EB711F7F3387000BD70B /* qq@2x.png in Resources */,
@@ -2312,6 +2373,7 @@
 				5BF05BAB1F9D8AF8004F8B79 /* RootTableViewController.m in Sources */,
 				5B5A4AA91FC806FD0069200C /* ProductTableViewCell.m in Sources */,
 				5BF05BBA1F9D8F19004F8B79 /* SurePlaceholderView.m in Sources */,
+				5B44F68A1FD137F20046017E /* BMGetMoneyViewController.m in Sources */,
 				5B5A4A6B1FC51EC60069200C /* CollectionViewController.m in Sources */,
 				5B62BAD51F6A207B002C6F97 /* HTPlayer.m in Sources */,
 				5B6835761F66670E00A7C6B2 /* VideoViewMode.m in Sources */,

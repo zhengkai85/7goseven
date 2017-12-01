@@ -100,6 +100,8 @@
     
     self.scrollview.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height - kLineHeight);
     self.scrollview.contentSize = CGSizeMake(titles.count * self.itemWidth, 0);
+    self.scrollview.scrollEnabled = NO;
+
     CGFloat width = self.scrollview.bounds.size.width / titles.count;
     if (titles.count) {
         for (NSInteger i=0; i<titles.count; i++) {

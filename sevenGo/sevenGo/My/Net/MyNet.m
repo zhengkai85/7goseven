@@ -38,7 +38,8 @@
                                         NSMutableDictionary *muDic = [[NSMutableDictionary alloc] initWithDictionary:dicData];
                                         [muDic setObject:dicData[@"avatar"][@"avatar128"] forKey:@"avatar128"];
                                         [muDic setObject:dicData[@"show_role"] forKey:@"role_id"];
-                                        if([dicData.allKeys containsObject:@"company"]) {
+                                        NSDictionary *company = dicData[@"company"];
+                                        if([company isNoEmpty]) {
                                             [muDic setObject:dicData[@"company"][@"id"] forKey:@"computer_name"];
                                             [muDic setObject:dicData[@"company"][@"title"] forKey:@"computer_id"];
                                         } else {

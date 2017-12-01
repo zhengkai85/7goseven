@@ -62,7 +62,7 @@
 //                                                      kHeaderViewTop,
 //                                                      self.view.frame.size.width,
 //                                                      self.view.frame.size.height- kHeaderViewTop);
-    [self.pagingHeaderView updateTitleContentOffset:0];
+//    [self.pagingHeaderView updateTitleContentOffset:0];
 
 }
 

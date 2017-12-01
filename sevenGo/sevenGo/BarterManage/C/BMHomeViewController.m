@@ -12,6 +12,10 @@
 #import "BMProductContainViewController.h"
 #import "BMAddSelType.h"
 #import "BMMoneyAboutViewController.h"
+#import "BMReturnListViewController.h"
+#import "BMBilllistViewController.h"
+#import "BMGetMoneyViewController.h"
+
 @interface BMHomeViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView      *tableView;
 @property (nonatomic, strong) NSArray   *arrDataSource;
@@ -109,11 +113,11 @@
         if([menuName isEqualToString:@"产品管理"]) {
             [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMProductContainViewController alloc] init]];
         } else if ([menuName isEqualToString:@"退货管理"]) {
-            
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMReturnListViewController alloc] init]];
         } else if ([menuName isEqualToString:@"收支明细"]) {
-            
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMBilllistViewController alloc] init]];
         } else if ([menuName isEqualToString:@"余额提现"]) {
-            
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMGetMoneyViewController alloc] init]];
         } else if ([menuName isEqualToString:@"费率说明"]) {
             [[GotoAppdelegate sharedAppDelegate] pushViewController:[[BMMoneyAboutViewController alloc] init]];
         }

@@ -55,7 +55,7 @@
         [self.contentView addSubview:btnMenu4];
         
         btnMenu1.tag = 100;
-        [btnMenu1 setImage:[YYImage imageNamed:@"my_barter.png"]
+        [btnMenu1 setImage:[YYImage imageNamed:@"bm_report.png"]
                  withTitle:@"待付款"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
@@ -64,7 +64,7 @@
         
         
         btnMenu2.tag = 200;
-        [btnMenu2 setImage:[YYImage imageNamed:@"my_supply.png"]
+        [btnMenu2 setImage:[YYImage imageNamed:@"bm_wait_pay.png"]
                  withTitle:@"待发货"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
@@ -73,14 +73,14 @@
         
         
         btnMenu3.tag = 300;
-        [btnMenu3 setImage:[YYImage imageNamed:@"my_barter.png"]
+        [btnMenu3 setImage:[YYImage imageNamed:@"bm_wait_rec.png"]
                  withTitle:@"待收货"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL
                   forState:UIControlStateNormal];
         [btnMenu3 addTarget:self action:@selector(gotoOrder:) forControlEvents:UIControlEventTouchUpInside];
         
-        [btnMenu4 setImage:[YYImage imageNamed:@"my_recruit.png"]
+        [btnMenu4 setImage:[YYImage imageNamed:@"bm_wait_send.png"]
                  withTitle:@"店铺报表"
                   sizeFont:[UIFont systemFontOfSize:13]
                 titleColor:COLOR_DETAIL

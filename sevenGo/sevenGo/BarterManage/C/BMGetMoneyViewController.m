@@ -1,23 +1,23 @@
 //
-//  BMReturnListViewController.m
+//  BMGetMoneyViewController.m
 //  sevenGo
 //
-//  Created by zhengkai on 2017/11/23.
+//  Created by zhengkai on 2017/12/1.
 //  Copyright © 2017年 zhengkai. All rights reserved.
 //
 
-#import "BMReturnListViewController.h"
+#import "BMGetMoneyViewController.h"
 
-@interface BMReturnListViewController ()
+@interface BMGetMoneyViewController ()
 
 @end
 
-@implementation BMReturnListViewController
+@implementation BMGetMoneyViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"退货管理";
+    self.title = @"提现";
 }
 
 - (void)didReceiveMemoryWarning {

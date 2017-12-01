@@ -130,7 +130,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533469472.589901"
+                  timestampString = "533804385.761737"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "458"
@@ -145,7 +145,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533469472.595291"
+                  timestampString = "533804385.768217"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "459"
@@ -183,7 +183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
             endingLineNumber = "196"
-            landmarkName = "+getSupportListApp:mod:row_id:block:"
+            landmarkName = "+changeSupportApp:table:row_id:isAdd:block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -199,7 +199,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
             endingLineNumber = "170"
-            landmarkName = "+changeCollectMegApp:mod:row_id:isAdd:block:"
+            landmarkName = "+getSupportListApp:mod:row_id:block:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -210,11 +210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "sevenGo/Found/Video/VideoTitleTableViewCell.m"
-            timestampString = "532494263.459702"
+            timestampString = "533804385.231783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "-doSupport:"
             landmarkType = "7">
          </BreakpointContent>
@@ -242,7 +242,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533469472.623301"
+                  timestampString = "533804385.822974"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
@@ -257,7 +257,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533469472.62682"
+                  timestampString = "533804385.827163"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
@@ -313,6 +313,54 @@
             endingLineNumber = "502"
             landmarkName = "-btnCamera_Click:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/Found/Video/VideoRecommendTableViewCell.m"
+            timestampString = "533729634.978995"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-setViewMode:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VideoRecommendTableViewCell setViewMode:]"
+                  moduleName = "sevenGo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/sevenGo/Found/Video/VideoRecommendTableViewCell.m"
+                  timestampString = "533804385.864117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "753">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[VideoRecommendTableViewCell setViewMode:]"
+                  moduleName = "sevenGo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/sevenGo/Found/Video/VideoRecommendTableViewCell.m"
+                  timestampString = "533804385.873585"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "987">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
