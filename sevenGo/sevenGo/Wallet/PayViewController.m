@@ -12,8 +12,8 @@
 #import "WalletNet.h"
 
 //支付
-//#import "WXApiObject.h"
-//#import "WXApi.h"
+#import "WXApiObject.h"
+#import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "LCProgressHUD.h"
 
@@ -48,6 +48,15 @@ static NSString *strCellIdentifierPay = @"CellIdentifierPay";
          forCellReuseIdentifier:strCellIdentifierMoney];
     [self.tableView registerNib:[UINib nibWithNibName:@"PaySelTableViewCell"bundle:nil]
          forCellReuseIdentifier:strCellIdentifierPay];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(paySucess)
+                                                 name:Nofification_wxSucess
+                                               object:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -129,22 +138,27 @@ static NSString *strCellIdentifierPay = @"CellIdentifierPay";
 }
 
 - (void)wxPay {
-//    [WalletNet wallet_orderHas_gift:self.giveMoney
-//                             amount:self.money
-//                            channel:@"wxpay"
-//                              block:^(id posts, NSInteger code, NSString *errorMsg) {
-//                                  NSDictionary *dic ;
-//                                  
-//                                  [WXApi registerApp:dic[@"appid"]];
-//                                  PayReq *request = [[PayReq alloc] init];
-//                                  request.partnerId = dic[@"partnerid"];
-//                                  request.prepayId= dic[@"prepayid"];
-//                                  request.package = dic[@"package"];
-//                                  request.nonceStr= dic[@"noncestr"];
-//                                  request.timeStamp = [dic[@"timestamp"] intValue];
-//                                  request.sign= dic[@"sign"];
-//                                  [WXApi sendReq:request];
-//                              }];
+    [WalletNet wallet_orderHas_gift:self.giveMoney
+                             amount:self.money
+                            channel:@"wxpay"
+                              block:^(id posts, NSInteger code, NSString *errorMsg) {
+                                  if(code == 200) {
+                                      NSDictionary *data = posts[@"data"];
+                                      NSDictionary *dic = data[@"wxpay"];
+
+                                      [WXApi registerApp:dic[@"appid"]];
+                                      PayReq *request = [[PayReq alloc] init];
+                                      request.partnerId = dic[@"partnerid"];
+                                      request.prepayId= dic[@"prepayid"];
+                                      request.package = dic[@"package"];
+                                      request.nonceStr= dic[@"noncestr"];
+                                      request.timeStamp = [dic[@"timestamp"] intValue];
+                                      request.sign= dic[@"sign"];
+                                      [WXApi sendReq:request];
+
+                                  }
+                                  
+                              }];
 }
 
 - (void)paySucess {

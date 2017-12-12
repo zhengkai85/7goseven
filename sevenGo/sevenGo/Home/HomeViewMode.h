@@ -19,6 +19,9 @@
 #define HomeType_market      @"market_list"
 #define HomeType_event       @"event_list"
 #define HomeType_recommend   @"recommend_list"
+#define HomeType_mode        @"mode_list"
+#define HomeType_batch       @"batch_list"
+#define HomeType_metting     @"metting_list"
 
 @interface HomeViewMode : NSObject
 

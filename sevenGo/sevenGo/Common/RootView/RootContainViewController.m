@@ -17,7 +17,6 @@
 
 - (void)setupView {
     
-    self.view.backgroundColor = COLOR_TABARVIEWGRAY;
 
     if(self.arrItem.count>0) {
         [self.view addSubview:self.pagingHeaderView];

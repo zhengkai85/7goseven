@@ -29,26 +29,47 @@
                           HomeType_scm : [[HomeMode alloc] initWithTitle:@"供应链集群" subtitle:@"提供最全面的供应需求产业链" url:@"4"],
                           HomeType_market : [[HomeMode alloc] initWithTitle:@"商城集群" subtitle:@"最有价值的黄金商城信息" url:@"5"],
                           HomeType_recommend : [[HomeMode alloc] initWithTitle:@"7购企业推荐" subtitle:@"只给您更好的，而不是最好的" url:@""],
+                          HomeType_mode : [[HomeMode alloc] initWithTitle:@"样版易拍" subtitle:@"一款一件，拍完就没有了" url:@""],
+                          HomeType_batch : [[HomeMode alloc] initWithTitle:@"批量找货" subtitle:@"在这里找你需要的" url:@""],
+                          HomeType_metting : [[HomeMode alloc] initWithTitle:@"拍卖会" subtitle:@"感受一下现场拍卖的紧张" url:@""],
+
                           };
         
-        self.refreshDataSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-            [HomeNet getHomeList:^(id posts, NSInteger code, NSString *errorMsg) {
-                if(code == 200) {
-                    NSDictionary *dicData = (NSDictionary*)posts[@"data"];
-                    self.arrBanner = [self fillModeWithData:dicData Key:HomeType_banner];
-                    self.arrHeadline = [self fillModeWithData:dicData Key:HomeType_headline];
-                    self.arrBid = [self fillModeWithData:dicData Key:HomeType_bid];
-                    self.arrDesigner = [self fillModeWithData:dicData Key:HomeType_designer];
-                    self.arrBrand = [self fillModeWithData:dicData Key:HomeType_brand];
-                    self.arrScm = [self fillModeWithData:dicData Key:HomeType_scm];
-                    self.arrMarket = [self fillModeWithData:dicData Key:HomeType_market];
-                    self.arrRecommend = [self fillModeWithData:dicData Key:HomeType_recommend];
-                }
-
-            }];
+        [HomeNet getHomeList:^(id posts, NSInteger code, NSString *errorMsg) {
+            if(code == 200) {
+                NSDictionary *dicData = (NSDictionary*)posts[@"data"];
+                self.arrBanner = [self fillModeWithData:dicData Key:HomeType_banner];
+                self.arrHeadline = [self fillModeWithData:dicData Key:HomeType_headline];
+                self.arrBid = [self fillModeWithData:dicData Key:HomeType_bid];
+                self.arrDesigner = [self fillModeWithData:dicData Key:HomeType_designer];
+                self.arrBrand = [self fillModeWithData:dicData Key:HomeType_brand];
+                self.arrScm = [self fillModeWithData:dicData Key:HomeType_scm];
+                self.arrMarket = [self fillModeWithData:dicData Key:HomeType_market];
+                self.arrRecommend = [self fillModeWithData:dicData Key:HomeType_recommend];
+            }
             
-            return nil;
         }];
+        
+        
+        
+//        self.refreshDataSignal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
+//            [HomeNet getHomeList:^(id posts, NSInteger code, NSString *errorMsg) {
+//                if(code == 200) {
+//                    NSDictionary *dicData = (NSDictionary*)posts[@"data"];
+//                    self.arrBanner = [self fillModeWithData:dicData Key:HomeType_banner];
+//                    self.arrHeadline = [self fillModeWithData:dicData Key:HomeType_headline];
+//                    self.arrBid = [self fillModeWithData:dicData Key:HomeType_bid];
+//                    self.arrDesigner = [self fillModeWithData:dicData Key:HomeType_designer];
+//                    self.arrBrand = [self fillModeWithData:dicData Key:HomeType_brand];
+//                    self.arrScm = [self fillModeWithData:dicData Key:HomeType_scm];
+//                    self.arrMarket = [self fillModeWithData:dicData Key:HomeType_market];
+//                    self.arrRecommend = [self fillModeWithData:dicData Key:HomeType_recommend];
+//                }
+//
+//            }];
+//            
+//            return nil;
+//        }];
     }
     return self;
 }

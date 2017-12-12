@@ -12,7 +12,9 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "AppCacheData.h"
 #import "WXApi.h"
-@interface AppDelegate ()
+#import "LCProgressHUD.h"
+
+@interface AppDelegate ()<WXApiDelegate>
 @end
 
 @implementation AppDelegate
@@ -45,7 +47,7 @@
         return YES;
     }
     
-    if([WXApi handleOpenURL:url delegate:nil]) {
+    if([WXApi handleOpenURL:url delegate:self]) {
         return YES;
     }
     
@@ -56,6 +58,27 @@
     }
     return YES;
 }
+
+- (void)onResp:(BaseResp *)resp
+{
+    if([resp isKindOfClass:[PayResp class]]){
+        NSString *strMsg;
+        
+        switch (resp.errCode) {
+            case WXSuccess:
+                strMsg = @"支付结果：成功！";
+                [LCProgressHUD showMessage:strMsg];
+                [[NSNotificationCenter defaultCenter] postNotificationName:Nofification_wxSucess
+                                                                    object:nil];
+                break;
+            default:
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                [LCProgressHUD showMessage:strMsg];
+                break;
+        }
+    }
+}
+
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation {
     if([[UMSocialManager defaultManager] handleOpenURL:url]) {

@@ -19,36 +19,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "sevenGo/Area/AreaAdd/Net/AreaAddNet.m"
-            timestampString = "533469472.266339"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "+quanAddImgs:description:tags:lng:lat:province:city:address:position:block:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sevenGo/Area/AreaAdd/Net/AreaAddNet.m"
-            timestampString = "533469472.266754"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "sevenGo/Area/AreaAdd/LocationDemoViewController.m"
             timestampString = "531298460.61005"
             startingColumnNumber = "9223372036854775807"
@@ -88,86 +58,6 @@
             startingLineNumber = "117"
             endingLineNumber = "117"
             landmarkName = "-initSearchController"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-            timestampString = "533469472.26702"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
-            landmarkName = "-loadImage:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-            timestampString = "533469472.267128"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "458"
-            endingLineNumber = "458"
-            landmarkName = "-loadImage:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ZLPreviewImageAndGif loadImage:]"
-                  moduleName = "sevenGo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533804385.761737"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "458"
-                  endingLineNumber = "458"
-                  offsetFromSymbolStart = "629">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__34-[ZLPreviewImageAndGif loadImage:]_block_invoke"
-                  moduleName = "sevenGo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLBigImageCell.m"
-                  timestampString = "533804385.768217"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "459"
-                  endingLineNumber = "459"
-                  offsetFromSymbolStart = "121">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "sevenGo/Common/RootView/RootWebViewController.m"
-            timestampString = "532250593.665378"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
-            landmarkName = "-logout"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -226,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-            timestampString = "532494116.693462"
+            timestampString = "534764403.933186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "901"
@@ -242,7 +132,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533804385.822974"
+                  timestampString = "534765888.474172"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
@@ -257,7 +147,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-                  timestampString = "533804385.827163"
+                  timestampString = "534765888.487008"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "901"
@@ -274,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-            timestampString = "532494116.694057"
+            timestampString = "534764403.933283"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "513"
@@ -290,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-            timestampString = "532494116.694464"
+            timestampString = "534764403.933355"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "940"
@@ -306,7 +196,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/ZLPhotoBrowser/PhotoBrowser/ZLPhotoActionSheet.m"
-            timestampString = "532494116.694856"
+            timestampString = "534764403.933427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "502"
@@ -338,7 +228,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/sevenGo/Found/Video/VideoRecommendTableViewCell.m"
-                  timestampString = "533804385.864117"
+                  timestampString = "534765888.583531"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -353,7 +243,7 @@
                   moduleName = "sevenGo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhengkai/Desktop/7goseven/sevenGo/sevenGo/Found/Video/VideoRecommendTableViewCell.m"
-                  timestampString = "533804385.873585"
+                  timestampString = "534765888.596554"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -361,6 +251,86 @@
                   offsetFromSymbolStart = "987">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/My/C/MyViewController.m"
+            timestampString = "534647535.793841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "-doChange"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/Wallet/PayViewController.m"
+            timestampString = "534647535.793966"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-wxPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/Area/AreaAdd/C/AreaAddViewController.m"
+            timestampString = "534647535.794647"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-doSubmit"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/Area/AreaAdd/Net/AreaAddNet.m"
+            timestampString = "534647584.04324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "+quanAddImgs:description:tags:lng:lat:province:city:address:position:block:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "sevenGo/Common/PubCell/PhotoTableViewCell.m"
+            timestampString = "534764409.468084"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-getPas"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

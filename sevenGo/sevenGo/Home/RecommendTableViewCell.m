@@ -7,9 +7,10 @@
 //
 
 #import "RecommendTableViewCell.h"
+#import "AuctionMode.h"
 
 @interface RecommendTableViewCell ()
-@property (nonatomic, strong) HomeViewMode *homeViewMode;
+@property (nonatomic, strong) AuctionViewMode *viewMode;
 @property (nonatomic, assign) CGFloat viewHeight;
 @property (nonatomic, strong) NSArray *arrDataSource;
 
@@ -17,13 +18,13 @@
 
 @implementation RecommendTableViewCell
 
-- (void)setViewMode:(HomeViewMode*)viewModel
+- (void)setViewMode:(AuctionViewMode*)viewModel
              height:(CGFloat)height
               index:(NSInteger)index {
     
-    self.homeViewMode = viewModel;
+    self.viewMode = viewModel;
     self.viewHeight = height;
-    self.arrDataSource = viewModel.arrRecommend;
+    self.arrDataSource = viewModel.arrMetting;
     NSInteger tag = 1000;
     UIImageView *imgCover = (UIImageView*)[self.contentView viewWithTag:++tag];
     if(!imgCover) {
@@ -56,10 +57,33 @@
         [self.contentView addSubview:lblContnet];
     }
     
-    HomeMode *mode = self.arrDataSource[index];
-    [imgCover setImageURL:[NSURL URLWithString:mode.pic]];
+    UIButton *btnRecommend =(UIButton*)[self.contentView viewWithTag:++tag];
+    if(!btnRecommend) {
+        btnRecommend = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 120,
+                                                                  lblTitle.bottom - 10,
+                                                                  100,
+                                                                  30)];
+        btnRecommend.layer.cornerRadius = 4.0;
+        [btnRecommend setBackgroundColor:COLOR_NAV];
+        [btnRecommend setTitle:@"报名" forState:UIControlStateNormal];
+        btnRecommend.titleLabel.font = [UIFont systemFontOfSize:13];
+        [self.contentView addSubview:btnRecommend];
+    }
+    
+    AuctionMode *mode = self.arrDataSource[index];
+
+    
+    NSArray *arr = mode.image_list;
+    if(arr.count>0) {
+        NSString *url = arr[0][@"thumb"];
+        [imgCover setImageURL:[NSURL URLWithString:url]];
+    }
     lblTitle.text = mode.title;
-    lblContnet.text = mode.subtitle;
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[mode.end_time longLongValue]];
+    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+    [objDateformat setDateFormat:@"MM-dd HH:mm"];
+    lblContnet.text = [NSString stringWithFormat:@"开拍时间:%@",[objDateformat stringFromDate: date]];
     
 }
 

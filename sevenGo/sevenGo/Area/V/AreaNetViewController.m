@@ -18,11 +18,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.webView.frame = CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - kHeaderViewTop - TAB_BAR_HEIGHT - STATUS_BAR_HEIGHT);
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadWebView)
+                                                 name:STRING_NOTIFICATION_ReloadArea
+                                               object:nil];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)reloadWebView {
+    [self.webView reload];
 }
 
 /*

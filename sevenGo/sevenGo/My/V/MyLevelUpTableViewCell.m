@@ -91,13 +91,13 @@
     
     UserViewMode *mode = [AppCacheData shareCachData].userMode;
     if([mode.role_id isEqualToString:@"1"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/commercialArea/upgradeVip.w"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/commercialArea/upgradeVip.w"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if ([mode.role_id isEqualToString:@"2"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"iQiGou/h5/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=2"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=2"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if ([mode.role_id isEqualToString:@"3"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     }}
 
@@ -109,13 +109,13 @@
     
     UserViewMode *mode = [AppCacheData shareCachData].userMode;
     if([mode.role_id isEqualToString:@"1"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/commercialArea/upgradeVip.w"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/src/app/commercialArea/upgradeVip.w"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if ([mode.role_id isEqualToString:@"2"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     } else if ([mode.role_id isEqualToString:@"3"]) {
-        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
+        RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/src/app/commercialArea/Vip_S_Item.w?data=3"]];
         [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
     }
 }

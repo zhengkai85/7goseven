@@ -8,6 +8,7 @@
 
 #import "SevenGoTabBarController.h"
 #import "TopHomeViewController.h"
+#import "TopHome2ViewController.h"
 #import "BarterViewController.h"
 #import "AreaContainViewController.h"
 #import "FoundContainViewController.h"
@@ -31,16 +32,17 @@
     
     
     UINavigationController *homeNavigationController = [[UINavigationController alloc]
-                                                        initWithRootViewController:[[TopHomeViewController alloc] init]];
+                                                        initWithRootViewController:[[TopHome2ViewController alloc] init]];
     homeNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页"
                                                                         image:[YYImage imageNamed:@"tb_home_nor.png"]
                                                                 selectedImage:[YYImage imageNamed:@"tb_home_sel.png"]];
     
     
-//    RootWebViewController *vcGoods = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5Get,@"/iQiGou/h5/iQiGou/src/app/goodsExchange/goodsList.w"]];
-//    [[BMHomeViewController alloc] init]
+    RootWebViewController *vcGoods = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/bid/bidHome.w"]];
+//    vcGoods.view.backgroundColor = COLOR_TABARVIEWGRAY;
+    vcGoods.webView.top = 0;
     UINavigationController *barterNavigationController = [[UINavigationController alloc]
-                                                        initWithRootViewController:[[BMHomeViewController alloc] init]];
+                                                        initWithRootViewController:vcGoods];
     barterNavigationController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"易货"
                                                                         image:[YYImage imageNamed:@"tb_barter_nor.png"]
                                                                 selectedImage:[YYImage imageNamed:@"tb_barter_sel.png"]];

@@ -13,4 +13,6 @@
 
 - (void)setViewMode:(HomeMode*)mode
              height:(CGFloat)heigh;
+
+@property (nonatomic, strong)void(^gotoDetailBlock)(void);
 @end

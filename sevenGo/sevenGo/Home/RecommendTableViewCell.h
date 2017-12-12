@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HomeViewMode.h"
+#import "AuctionViewMode.h"
 
 @interface RecommendTableViewCell : UITableViewCell
 
-- (void)setViewMode:(HomeViewMode*)viewModel
+- (void)setViewMode:(AuctionViewMode*)viewModel
              height:(CGFloat)height
               index:(NSInteger)index;
 @end

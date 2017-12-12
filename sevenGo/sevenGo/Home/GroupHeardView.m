@@ -49,6 +49,7 @@
         [btnGoto setTitle:@"查看更多" forState:UIControlStateNormal];
         [btnGoto setTitleColor:COLOR_NAV forState:UIControlStateNormal];
         btnGoto.titleLabel.font = [UIFont systemFontOfSize:13];
+        [btnGoto addTarget:self action:@selector(gotoDetail) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnGoto];
     }
     
@@ -56,6 +57,12 @@
         lblTilte.text = mode.title;
         lblContent.text = mode.subtitle;
         btnGoto.hidden = [mode isEmpty];
+    }
+}
+
+- (void)gotoDetail {
+    if(self.gotoDetailBlock) {
+        self.gotoDetailBlock();
     }
 }
 @end

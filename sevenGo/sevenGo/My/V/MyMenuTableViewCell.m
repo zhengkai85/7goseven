@@ -62,7 +62,7 @@
         
         
         [RACObserve(self, isEnt) subscribeNext:^(id x) {
-            if(!self.isEnt) {
+            if(self.isEnt) {
                 [btnMenu1 setImage:[YYImage imageNamed:@"my_barter.png"]
                          withTitle:@"图库管理"
                           sizeFont:[UIFont systemFontOfSize:13]

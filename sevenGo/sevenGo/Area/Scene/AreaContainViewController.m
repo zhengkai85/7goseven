@@ -9,13 +9,17 @@
 #import "AreaContainViewController.h"
 #import "AreaNetViewController.h"
 #import "AreaAddViewController.h"
-
+#import "GotoRoute.h"
 
 @interface AreaContainViewController ()
 
 @end
 
 @implementation AreaContainViewController
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,9 +30,24 @@
     [self.pagingHeaderView addSubview:btn];
     [btn addTarget:self action:@selector(doAdd) forControlEvents:UIControlEventTouchUpInside];
     
+//
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(changeSel)
+//                                                 name:Nofification_TopDesigner
+//                                               object:nil];
+    
+}
+
+- (void)changeSel {
+    self.pagingViewController.seletedIndex = 2;
 }
 
 - (void)doAdd {
+    
+    if([GotoRoute isLogin]) {
+        return;
+    }
+    
     AreaAddViewController *vc = [[AreaAddViewController alloc] init];
     [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
 }

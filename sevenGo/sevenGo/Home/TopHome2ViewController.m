@@ -1,12 +1,12 @@
 //
-//  TopHomeViewController.m
+//  TopHome2ViewController.m
 //  sevenGo
 //
-//  Created by zhengkai on 17/9/5.
+//  Created by zhengkai on 2017/12/2.
 //  Copyright © 2017年 zhengkai. All rights reserved.
 //
 
-#import "TopHomeViewController.h"
+#import "TopHome2ViewController.h"
 #import "HomeViewMode.h"
 #import "BannerTableViewCell.h"
 #import "HeadlineTableViewCell.h"
@@ -18,18 +18,21 @@
 #import "RecommendTableViewCell.h"
 #import "AuctionTableViewCell.h"
 #import "GroupHeardView.h"
+#import "AuctionImgTableViewCell.h"
 
 #import "WalletHomeViewController.h"
 #import "AreaAddViewController.h"
 #import "AppDelegate.h"
-#import "AuctionMode.h"
 
-@interface TopHomeViewController () <UITableViewDelegate,UITableViewDataSource>
+#import "AuctionMode.h"
+#import "AuctionViewMode.h"
+#import "RootWebViewController.h"
+
+@interface TopHome2ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) HomeViewMode *viewMode;
-@property (nonatomic, strong) AuctionMode *auViewMode;
+@property (nonatomic, strong) AuctionViewMode *auViewMode;
 @end
-
 
 #define ReuseHomeTopBannerTableViewCell         @"BannerTableViewCell"
 #define ReuseHomeHeadlineTableViewCell          @"HeadlineTableViewCell"
@@ -40,11 +43,15 @@
 #define ReuseMarkTableViewCell                  @"MarkTableViewCell"
 #define ReuseRecommendTableViewCell             @"RecommendTableViewCell"
 #define ReuseAuctionTableViewCell               @"AuctionTableViewCell"
-
+#define ReuseBannerTableViewCell                @"BannerTableViewCell"
+#define ReuseAuctionImgTableViewCell            @"AuctionImgTableViewCell"
 
 typedef enum : NSUInteger {
     CellType_Banner = 0,
     CellType_Headline,
+    CellType_Mode,
+    CellType_Batch,
+    CellType_Metting,
     CellType_Bid,
     CellType_Designer,
     CellType_Brand,
@@ -53,8 +60,15 @@ typedef enum : NSUInteger {
     CellType_Recommend
 } CellType;
 
+@implementation TopHome2ViewController
 
-@implementation TopHomeViewController
+- (instancetype)init {
+    if(!self) {
+        self = [super init];
+        
+    }
+    return self;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -66,23 +80,17 @@ typedef enum : NSUInteger {
     [super viewWillDisappear:animated];
 }
 
-- (instancetype)init {
-    if(!self) {
-        self = [super init];
-
-    }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
                                                                    0,
                                                                    SCREEN_WIDTH,
-                                                                   SCREEN_HEIGHT - TAB_BAR_HEIGHT - STATUS_BAR_HEIGHT)
+                                                                   SCREEN_HEIGHT - TAB_BAR_HEIGHT)
                                                   style:UITableViewStyleGrouped];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -96,6 +104,15 @@ typedef enum : NSUInteger {
     [self.tableView registerClass:[HeadlineTableViewCell class]
            forCellReuseIdentifier:ReuseHomeHeadlineTableViewCell];
     
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"AuctionTableViewCell" bundle:nil]
+           forCellReuseIdentifier:ReuseAuctionTableViewCell];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"AuctionImgTableViewCell" bundle:nil]
+         forCellReuseIdentifier:ReuseAuctionImgTableViewCell];
+    
+    
+    
     [self.tableView registerClass:[BidTableViewCell class]
            forCellReuseIdentifier:ReuseHomeBidTableViewCell];
     
@@ -107,7 +124,7 @@ typedef enum : NSUInteger {
     
     [self.tableView registerClass:[SCMTableViewCell class]
            forCellReuseIdentifier:ReuseScmTableViewCell];
-
+    
     [self.tableView registerClass:[MarkTableViewCell class]
            forCellReuseIdentifier:ReuseMarkTableViewCell];
     
@@ -115,28 +132,41 @@ typedef enum : NSUInteger {
            forCellReuseIdentifier:ReuseRecommendTableViewCell];
     
     self.viewMode = [[HomeViewMode alloc] init];
-    RACSubject *subject = [RACSubject subject];
-    [self.viewMode.refreshDataSignal subscribeError:^(NSError *error) {
-        [subject sendError:error];
-    } completed:^{
-        [subject sendCompleted];
-        [self.tableView reloadData];
-    }];
+    
+
+    
+    self.auViewMode = [[AuctionViewMode alloc] init];
+
+
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    WalletHomeViewController *vc = [[WalletHomeViewController alloc] init];
-    [[GotoAppdelegate sharedAppDelegate] pushViewController:vc animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 8;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if(section == 7) {
-        NSArray *arr =  self.viewMode.arrRecommend;
+    if(section == CellType_Metting) {
+        NSArray *arr =  self.auViewMode.arrMetting;
         return arr.count;
+    }
+    
+    if(section == CellType_Mode) {
+        NSInteger count = self.auViewMode.arrMode.count;
+        if(count < 3) {
+            return 2;
+        } else {
+            return 3;
+        }
+    } else if (section == CellType_Batch) {
+        NSInteger count = self.auViewMode.arrBatch.count;
+        if(count < 3) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
     return 1;
 }
@@ -157,36 +187,30 @@ typedef enum : NSUInteger {
                                                                     forIndexPath:indexPath];
         [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
         return cell;
-    } else if (indexPath.section == CellType_Bid) {
-        BidTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseHomeBidTableViewCell
-                                                                 forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
-        return cell;
-    } else if (indexPath.section == CellType_Designer) {
-        DesignerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseDesignerTableViewCell
-                                                                 forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
-        return cell;
-    } else if (indexPath.section == CellType_Brand) {
-        BrandTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseBrandTableViewCell
-                                                                      forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
-        return cell;
-    } else if (indexPath.section == CellType_Scm) {
-        SCMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseScmTableViewCell
-                                                                   forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
-        return cell;
-    } else if (indexPath.section == CellType_Mark) {
-        MarkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseMarkTableViewCell
-                                                                 forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath]];
-        return cell;
-    } else if (indexPath.section == CellType_Recommend) {
+    } else if(indexPath.section == CellType_Mode) {
+        if(indexPath.row == 0) {
+            AuctionImgTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseAuctionImgTableViewCell];
+            [cell setViewMode:self.auViewMode type:0];
+            return cell;
+        } else {
+            AuctionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseAuctionTableViewCell];
+            [cell setViewMode:self.auViewMode row:indexPath.row-1 type:0];
+            return cell;
+        }
+    } else if (indexPath.section == CellType_Batch) {
+        if(indexPath.row == 0) {
+            AuctionImgTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseAuctionImgTableViewCell];
+            [cell setViewMode:self.auViewMode type:1];
+            return cell;
+        } else {
+            AuctionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseAuctionTableViewCell];
+            [cell setViewMode:self.auViewMode row:indexPath.row-1 type:1];
+            return cell;
+        }
+    } else if (indexPath.section == CellType_Metting) {
         RecommendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ReuseRecommendTableViewCell
                                                                        forIndexPath:indexPath];
-        [cell setViewMode:self.viewMode height:[self getHeightForRowAtIndexPath:indexPath] index:indexPath.row];
-        return cell;
+        [cell setViewMode:self.auViewMode height:[self getHeightForRowAtIndexPath:indexPath] index:indexPath.row];
     }
     return [UITableViewCell new];
 }
@@ -200,37 +224,62 @@ typedef enum : NSUInteger {
     if(section == CellType_Banner || section == CellType_Headline) {
         return [[UIView alloc] init];
     }
-
+    
     NSDictionary *dic = self.viewMode.dicHeard;
     CGFloat height = [self getSecitonHeightInSection:section];
-    
+
     GroupHeardView *view = [[GroupHeardView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, height)];
 
     HomeMode *mode;
-    if(section == CellType_Bid) {
-        mode = [dic objectForKey:HomeType_bid];
+    if(section == CellType_Mode) {
+        mode = [dic objectForKey:HomeType_mode];
         [view setGotoDetailBlock:^{
-             [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 1;
+            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 1;
+            RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/bid/modeBid.w"]];
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
         }];
-    } else if (section == CellType_Designer) {
-        mode = [dic objectForKey:HomeType_designer];
+
+    } else if (section == CellType_Batch) {
+        mode = [dic objectForKey:HomeType_batch];
         [view setGotoDetailBlock:^{
-            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 2;
-            [self performBlock:^{
-//                [[NSNotificationCenter defaultCenter] postNotificationName:Nofification_TopDesigner object:nil];
-            } afterDelay:0.5];
+            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 1;
+            RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/bid/batchBid.w"]];
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
             
         }];
-    } else if (section == CellType_Brand) {
-        mode = [dic objectForKey:HomeType_brand];
-    } else if (section == CellType_Scm) {
-        mode = [dic objectForKey:HomeType_scm];
-    } else if (section == CellType_Mark) {
-        mode = [dic objectForKey:HomeType_market];
-    } else if (section == CellType_Recommend) {
-        mode = [dic objectForKey:HomeType_recommend];
+    } else if (section == CellType_Metting) {
+        mode = [dic objectForKey:HomeType_metting];
+        [view setGotoDetailBlock:^{
+            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 1;
+            RootWebViewController *vc = [[RootWebViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@%@",NetH5,@"/iQiGou/src/app/bid/paimaihui.w"]];
+            [[GotoAppdelegate sharedAppDelegate] pushViewController:vc];
+        }];
+
     }
-    
+//    if(section == CellType_Bid) {
+//        mode = [dic objectForKey:HomeType_bid];
+//        [view setGotoDetailBlock:^{
+//            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 1;
+//        }];
+//    } else if (section == CellType_Designer) {
+//        mode = [dic objectForKey:HomeType_designer];
+//        [view setGotoDetailBlock:^{
+//            [AppDelegate sharedAppDelegate].tabBarController.selectedIndex = 2;
+//            [self performBlock:^{
+//                [[NSNotificationCenter defaultCenter] postNotificationName:Nofification_TopDesigner object:nil];
+//            } afterDelay:0.5];
+//
+//        }];
+//    } else if (section == CellType_Brand) {
+//        mode = [dic objectForKey:HomeType_brand];
+//    } else if (section == CellType_Scm) {
+//        mode = [dic objectForKey:HomeType_scm];
+//    } else if (section == CellType_Mark) {
+//        mode = [dic objectForKey:HomeType_market];
+//    } else if (section == CellType_Recommend) {
+//        mode = [dic objectForKey:HomeType_recommend];
+//    }
+//
     if(mode) {
         [view setViewMode:mode height:height];
         return view;
@@ -255,15 +304,15 @@ typedef enum : NSUInteger {
         return SCREEN_WIDTH/750*500;
     } else if(indexPath.section == CellType_Headline) {
         return SCREEN_WIDTH/750*90;
-    } else if(indexPath.section == CellType_Bid) {
-        return SCREEN_WIDTH/750*580;
-    } else  if(indexPath.section == CellType_Designer || indexPath.section == CellType_Scm) {
-        return SCREEN_WIDTH/750*540;
-    } else if (indexPath.section == CellType_Brand || indexPath.section == CellType_Mark || indexPath.section == CellType_Recommend) {
+    } else if(indexPath.section == CellType_Mode || indexPath.section == CellType_Batch) {
+        if(indexPath.row == 0) {
+            return SCREEN_WIDTH/750*300;
+        }
+        return SCREEN_WIDTH/750*480;
+    } else if (indexPath.section == CellType_Metting) {
         return SCREEN_WIDTH/750*540;
     }
     return 0;
 }
-
 
 @end

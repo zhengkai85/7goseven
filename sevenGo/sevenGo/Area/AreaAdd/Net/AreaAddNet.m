@@ -79,7 +79,7 @@
     }
     
     [muDic setObject:[NSNumber numberWithBool:position] forKey:@"position"];
-    
+        
     [AFAppDotNetAPIClient dealWithNet:@"quan"
                                 param:muDic
                            isShowLoad:NO

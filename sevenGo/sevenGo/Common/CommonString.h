@@ -45,8 +45,8 @@ blue:((CGFloat)(hexValue & 0xFF))/255.0 alpha:alpha] \
 
 
 #define NetAPI                      @"http://test.7gomall.com/api/"
-#define NetH5                       @"https://h5.7gomall.com/iQiGou/h5"
-#define NetH5Get                    @"https://h5.7gomall.com"
+#define NetH5                       @"http://h5.7gomall.com/iQiGou/test"
+#define NetH5Get                    @"http://h5.7gomall.com"
 
 
 #define APPVERSION                  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
@@ -69,7 +69,7 @@ blue:((CGFloat)(hexValue & 0xFF))/255.0 alpha:alpha] \
 
 #define STRING_NOTIFICATION_LOINGCHANGE     @"Nofification_LoginChange"
 #define STRING_NOTIFICATION_OPENMENU        @"Nofification_OpenMenu"
-
+#define STRING_NOTIFICATION_ReloadArea     @"Nofification_ReloadArea"
 
 #define SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 
@@ -100,6 +100,7 @@ blue:((CGFloat)(hexValue & 0xFF))/255.0 alpha:alpha] \
 //#define COLOR_BOTTOMCELL       RGBCOLOR(248, 249, 251)
 
 #define Nofification_PaySucess           @"Nofification_PaySucess"
+#define Nofification_wxSucess            @"Nofification_wxSucess"
 
 
 @interface CommonString : NSObject

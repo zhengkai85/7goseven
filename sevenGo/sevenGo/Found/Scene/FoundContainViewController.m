@@ -19,6 +19,7 @@
 
 - (void)setupData {
 
+    
     NSMutableArray *items = [[NSMutableArray alloc] initWithCapacity:3];
     [items addObject:@"推荐"];
     [self.viewControllers addObject:[[FoundNetViewController alloc] initWithUrl:[NSString stringWithFormat:@"%@/iQiGou/src/app/find/recommend/recommendList.w",NetH5]]];

@@ -166,8 +166,9 @@ typedef enum : NSUInteger {
 
 - (void)doSubmit {
     
-    if([self.txtCell.txt isEmpty] || [self.photoCell.arrDataSource isEmpty]) {
+    if([self.txtCell.txt isEmpty] && [self.photoCell.arrDataSource isEmpty]) {
         [LCProgressHUD showMessage:@"请填写发布内容"];
+        return;
     }
     
     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:self.photoCell.arrDataSource.count];
@@ -203,16 +204,36 @@ typedef enum : NSUInteger {
                            province:0
                                city:0
                             address:self.dicLocationMeg[@"address"]
-                           position:self.appendCell.bSel
+                           position:1
                               block:^(id posts, NSInteger code, NSString *errorMsg) {
                                   if(code == 200) {
                                       [LCProgressHUD showMessage:@"发送成功"];
                                       [[GotoAppdelegate sharedAppDelegate] popViewController];
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:STRING_NOTIFICATION_ReloadArea object:nil];
                                   } else {
                                       [PubFunction showNetErrorLocalStr:@"发送失败" serverStr:errorMsg];
                                   }
                               }];
         });
+    }  else  {
+        [AreaAddNet quanAddImgs:nil
+                    description:self.txtCell.txt.text
+                           tags:[self.tagCell getSelectTag]
+                            lng:[self.dicLocationMeg[@"longitude"] doubleValue]
+                            lat:[self.dicLocationMeg[@"latitude"] doubleValue]
+                       province:0
+                           city:0
+                        address:self.dicLocationMeg[@"address"]
+                       position:1
+                          block:^(id posts, NSInteger code, NSString *errorMsg) {
+                              if(code == 200) {
+                                  [LCProgressHUD showMessage:@"发送成功"];
+                                  [[GotoAppdelegate sharedAppDelegate] popViewController];
+                                  [[NSNotificationCenter defaultCenter] postNotificationName:STRING_NOTIFICATION_ReloadArea object:nil];
+                              } else {
+                                  [PubFunction showNetErrorLocalStr:@"发送失败" serverStr:errorMsg];
+                              }
+                          }];
     }
 }
 

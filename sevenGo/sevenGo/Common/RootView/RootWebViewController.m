@@ -58,7 +58,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor clearColor];
+
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_BAR_HEIGHT)];
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
@@ -153,21 +154,27 @@
 }
 
 - (void)gotoLogin {
-    [[AppDelegate sharedAppDelegate] enterLoginUI];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[AppDelegate sharedAppDelegate] enterLoginUI];
+    });
 }
 - (void)openImage:(NSArray*)url {
     
-    NSMutableArray *muArr = [[NSMutableArray alloc] initWithCapacity:url.count];
-    for(NSString *strUrl in url) {
-        [muArr addObject:[NSURL URLWithString:strUrl]];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *muArr = [[NSMutableArray alloc] initWithCapacity:url.count];
+        for(NSString *strUrl in url) {
+            [muArr addObject:[NSURL URLWithString:strUrl]];
+        }
+        
+        ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
+        actionSheet.navBarColor = [UIColor whiteColor];
+        actionSheet.navTitleColor = COLOR_BLACK;
+        actionSheet.sender = [GotoAppdelegate sharedAppDelegate].topViewController;
+        [actionSheet previewPhotos:muArr index:0 hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
+        }];
+    });
     
-    ZLPhotoActionSheet *actionSheet = [[ZLPhotoActionSheet alloc] init];
-    actionSheet.navBarColor = [UIColor whiteColor];
-    actionSheet.navTitleColor = COLOR_BLACK;
-    actionSheet.sender = [GotoAppdelegate sharedAppDelegate].topViewController;
-    [actionSheet previewPhotos:muArr index:0 hideToolBar:YES complete:^(NSArray * _Nonnull photos) {
-    }];
+
 }
 
 - (void)logout {

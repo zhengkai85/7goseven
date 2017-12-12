@@ -37,20 +37,21 @@
                  range:NSMakeRange(4, str.length - 5)];
     self.lblContent2.attributedText = text;
     self.bSel = NO;
-    self.imgSel.userInteractionEnabled = YES;
-    [self.imgSel bk_whenTapped:^{
-        self.bSel = !self.bSel;
-    }];
-    
-    @weakify(self);
-    [RACObserve(self, bSel) subscribeNext:^(id x) {
-        @strongify(self);
-        if(self.bSel) {
-            [self.imgSel setImage:[YYImage imageNamed:@"areaAdd_unSel"]];
-        } else {
-            [self.imgSel setImage:[YYImage imageNamed:@"areaAdd_sel"]];
-        }
-    }];
+    self.imgSel.hidden = YES;
+//    self.imgSel.userInteractionEnabled = YES;
+//    [self.imgSel bk_whenTapped:^{
+//        self.bSel = !self.bSel;
+//    }];
+//
+//    @weakify(self);
+//    [RACObserve(self, bSel) subscribeNext:^(id x) {
+//        @strongify(self);
+//        if(self.bSel) {
+//            [self.imgSel setImage:[YYImage imageNamed:@"areaAdd_unSel"]];
+//        } else {
+//            [self.imgSel setImage:[YYImage imageNamed:@"areaAdd_sel"]];
+//        }
+//    }];
     
 }
 

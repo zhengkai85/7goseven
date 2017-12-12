@@ -285,8 +285,9 @@
     }
     
     if([[AppCacheData shareCachData].userMode.computer_id isNoEmpty]) {
-        self.isEnt = !self.isEnt;
+        self.isEnt = YES;
     } else {
+        self.isEnt = NO;
         UIAlertView *alert = [UIAlertView bk_showAlertViewWithTitle:@""
                                                             message:@"您还不是企业用户，点击开通超多专属权益"
                                                   cancelButtonTitle:@"我再想想"
